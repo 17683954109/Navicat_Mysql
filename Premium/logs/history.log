@@ -1,0 +1,817 @@
+[2018-06-23 12:48:35.31][localhost][000338][MYSQL][]
+SHOW VARIABLES LIKE 'lower_case_%'
+
+[2018-06-23 12:48:35.322][localhost][000338][MYSQL][]
+SHOW DATABASES
+
+[2018-06-23 12:48:36.516][localhost][000338][MYSQL][]
+SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'wechat' UNION SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = 'wechat' UNION SELECT COUNT(*) FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA = 'wechat'
+
+[2018-06-23 12:48:36.58][localhost][000338][MYSQL][]
+SELECT TABLE_SCHEMA, TABLE_NAME, TABLE_TYPE FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'wechat' ORDER BY TABLE_SCHEMA, TABLE_TYPE
+
+[2018-06-23 12:48:36.592][localhost][000338][MYSQL][]
+SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, COLUMN_TYPE FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = 'wechat' ORDER BY TABLE_SCHEMA, TABLE_NAME
+
+[2018-06-23 12:48:36.603][localhost][000338][MYSQL][]
+SELECT DISTINCT ROUTINE_SCHEMA, ROUTINE_NAME, PARAMS.PARAMETER FROM information_schema.ROUTINES LEFT JOIN ( SELECT SPECIFIC_SCHEMA, SPECIFIC_NAME, GROUP_CONCAT(CONCAT(DATA_TYPE, ' ', PARAMETER_NAME) ORDER BY ORDINAL_POSITION SEPARATOR ', ') PARAMETER, ROUTINE_TYPE FROM information_schema.PARAMETERS GROUP BY SPECIFIC_SCHEMA, SPECIFIC_NAME, ROUTINE_TYPE ) PARAMS ON ROUTINES.ROUTINE_SCHEMA = PARAMS.SPECIFIC_SCHEMA AND ROUTINES.ROUTINE_NAME = PARAMS.SPECIFIC_NAME AND ROUTINES.ROUTINE_TYPE = PARAMS.ROUTINE_TYPE WHERE ROUTINE_SCHEMA = 'wechat' ORDER BY ROUTINE_SCHEMA
+
+[2018-06-23 12:48:37.55][localhost][000339][MYSQL][]
+SHOW FULL TABLES WHERE Table_type != 'VIEW'
+
+[2018-06-23 12:48:37.558][localhost][000338][MYSQL][]
+SHOW TABLE STATUS
+
+[2018-06-23 12:48:41.868][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order` LIMIT 0, 1000
+
+[2018-06-23 12:48:41.869][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order`
+
+[2018-06-23 12:48:41.874][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order'
+
+[2018-06-23 12:48:41.875][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order`
+
+[2018-06-23 12:48:44.982][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order_shutcut` LIMIT 0, 1000
+
+[2018-06-23 12:48:44.985][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order_shutcut`
+
+[2018-06-23 12:48:44.989][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 12:48:44.99][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order_shutcut`
+
+[2018-06-23 13:07:35.431][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 13:07:35.433][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `order_shutcut` 
+
+[2018-06-23 13:07:35.436][localhost][000338][MYSQL][]
+SHOW FULL COLUMNS FROM `order_shutcut`
+
+[2018-06-23 13:07:35.441][localhost][000338][MYSQL][]
+SHOW INDEX FROM `order_shutcut`
+
+[2018-06-23 13:07:35.443][localhost][000338][MYSQL][]
+SELECT action_order, event_object_table, trigger_name, event_manipulation, event_object_table, definer, action_statement, action_timing FROM information_schema.triggers WHERE BINARY event_object_schema = 'wechat' AND BINARY event_object_table = 'order_shutcut' ORDER BY event_object_table
+
+[2018-06-23 13:07:35.454][localhost][000338][MYSQL][]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE NOT ISNULL(PARTITION_NAME) AND TABLE_SCHEMA LIKE 'wechat' AND TABLE_NAME LIKE 'order_shutcut' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2018-06-23 13:07:35.47][localhost][000338][MYSQL][]
+SHOW CHARACTER SET
+
+[2018-06-23 13:07:35.486][localhost][000338][MYSQL][]
+SHOW DATABASES
+
+[2018-06-23 13:07:35.49][localhost][000338][MYSQL][]
+SHOW ENGINES
+
+[2018-06-23 13:07:35.505][localhost][000338][MYSQL][]
+SELECT DISTINCT(TABLESPACE_NAME) AS TABLESPACE_NAME FROM information_schema.FILES WHERE NOT ISNULL(TABLESPACE_NAME)
+
+[2018-06-23 13:07:35.545][localhost][000338][MYSQL][]
+SHOW COLLATION
+
+[2018-06-23 13:07:53.87][localhost][000338][MYSQL][]
+ALTER TABLE `wechat`.`order_shutcut` 
+MODIFY COLUMN `order_id` varchar(255) NULL DEFAULT NULL AFTER `id`,
+MODIFY COLUMN `price` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL AFTER `order_id`
+
+[2018-06-23 13:07:53.927][localhost][000338][MYSQL][]
+SHOW FULL TABLES WHERE Table_type != 'VIEW'
+
+[2018-06-23 13:07:53.933][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 13:07:53.938][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `order_shutcut` 
+
+[2018-06-23 13:07:53.939][localhost][000338][MYSQL][]
+SHOW FULL COLUMNS FROM `order_shutcut`
+
+[2018-06-23 13:07:53.947][localhost][000338][MYSQL][]
+SHOW INDEX FROM `order_shutcut`
+
+[2018-06-23 13:07:53.949][localhost][000338][MYSQL][]
+SELECT action_order, event_object_table, trigger_name, event_manipulation, event_object_table, definer, action_statement, action_timing FROM information_schema.triggers WHERE BINARY event_object_schema = 'wechat' AND BINARY event_object_table = 'order_shutcut' ORDER BY event_object_table
+
+[2018-06-23 13:07:53.96][localhost][000338][MYSQL][]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE NOT ISNULL(PARTITION_NAME) AND TABLE_SCHEMA LIKE 'wechat' AND TABLE_NAME LIKE 'order_shutcut' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2018-06-23 13:08:03.85][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order_shutcut` LIMIT 0, 1000
+
+[2018-06-23 13:08:03.852][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order_shutcut`
+
+[2018-06-23 13:08:03.864][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 13:08:03.865][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order_shutcut`
+
+[2018-06-23 13:08:10.272][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order` LIMIT 0, 1000
+
+[2018-06-23 13:08:10.274][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order`
+
+[2018-06-23 13:08:10.286][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order'
+
+[2018-06-23 13:08:10.288][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order`
+
+[2018-06-23 13:08:36.986][localhost][000338][MYSQL][]
+DELETE FROM `wechat`.`order` WHERE `id` = 1
+
+[2018-06-23 13:08:36.994][localhost][000338][MYSQL][]
+DELETE FROM `wechat`.`order` WHERE `id` = 2
+
+[2018-06-23 13:08:36.995][localhost][000338][MYSQL][]
+DELETE FROM `wechat`.`order` WHERE `id` = 3
+
+[2018-06-23 13:08:36.996][localhost][000338][MYSQL][]
+DELETE FROM `wechat`.`order` WHERE `id` = 4
+
+[2018-06-23 13:08:36.996][localhost][000338][MYSQL][]
+DELETE FROM `wechat`.`order` WHERE `id` = 5
+
+[2018-06-23 13:08:40.913][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order` LIMIT 0, 1000
+
+[2018-06-23 13:08:40.914][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order`
+
+[2018-06-23 13:08:40.919][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order'
+
+[2018-06-23 13:08:40.92][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order`
+
+[2018-06-23 13:08:58.603][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 13:08:58.606][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `order_shutcut` 
+
+[2018-06-23 13:08:58.607][localhost][000338][MYSQL][]
+SHOW FULL COLUMNS FROM `order_shutcut`
+
+[2018-06-23 13:08:58.614][localhost][000338][MYSQL][]
+SHOW INDEX FROM `order_shutcut`
+
+[2018-06-23 13:08:58.615][localhost][000338][MYSQL][]
+SELECT action_order, event_object_table, trigger_name, event_manipulation, event_object_table, definer, action_statement, action_timing FROM information_schema.triggers WHERE BINARY event_object_schema = 'wechat' AND BINARY event_object_table = 'order_shutcut' ORDER BY event_object_table
+
+[2018-06-23 13:08:58.623][localhost][000338][MYSQL][]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE NOT ISNULL(PARTITION_NAME) AND TABLE_SCHEMA LIKE 'wechat' AND TABLE_NAME LIKE 'order_shutcut' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2018-06-23 13:08:58.638][localhost][000338][MYSQL][]
+SHOW CHARACTER SET
+
+[2018-06-23 13:08:58.653][localhost][000338][MYSQL][]
+SHOW DATABASES
+
+[2018-06-23 13:08:58.668][localhost][000338][MYSQL][]
+SELECT DISTINCT(TABLESPACE_NAME) AS TABLESPACE_NAME FROM information_schema.FILES WHERE NOT ISNULL(TABLESPACE_NAME)
+
+[2018-06-23 13:09:07.49][localhost][000338][MYSQL][]
+ALTER TABLE `wechat`.`order_shutcut` 
+MODIFY COLUMN `id` int(11) NULL DEFAULT NULL AUTO_INCREMENT FIRST
+
+[2018-06-23 13:09:07.492][localhost][000338][MYSQL][]
+Incorrect table definition; there can be only one auto column and it must be defined as a key
+
+[2018-06-23 13:09:16.706][localhost][000338][MYSQL][]
+ALTER TABLE `wechat`.`order_shutcut` 
+MODIFY COLUMN `id` int(11) NOT NULL AUTO_INCREMENT FIRST
+
+[2018-06-23 13:09:16.707][localhost][000338][MYSQL][]
+Incorrect table definition; there can be only one auto column and it must be defined as a key
+
+[2018-06-23 13:09:30.145][localhost][000338][MYSQL][]
+ALTER TABLE `wechat`.`order_shutcut` 
+MODIFY COLUMN `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT FIRST
+
+[2018-06-23 13:09:30.147][localhost][000338][MYSQL][]
+Incorrect table definition; there can be only one auto column and it must be defined as a key
+
+[2018-06-23 13:09:40.278][localhost][000338][MYSQL][]
+ALTER TABLE `wechat`.`order_shutcut` 
+MODIFY COLUMN `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT FIRST,
+ADD PRIMARY KEY (`id`)
+
+[2018-06-23 13:09:40.34][localhost][000338][MYSQL][]
+SHOW FULL TABLES WHERE Table_type != 'VIEW'
+
+[2018-06-23 13:09:40.346][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 13:09:40.35][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `order_shutcut` 
+
+[2018-06-23 13:09:40.352][localhost][000338][MYSQL][]
+SHOW FULL COLUMNS FROM `order_shutcut`
+
+[2018-06-23 13:09:40.36][localhost][000338][MYSQL][]
+SHOW INDEX FROM `order_shutcut`
+
+[2018-06-23 13:09:40.362][localhost][000338][MYSQL][]
+SELECT action_order, event_object_table, trigger_name, event_manipulation, event_object_table, definer, action_statement, action_timing FROM information_schema.triggers WHERE BINARY event_object_schema = 'wechat' AND BINARY event_object_table = 'order_shutcut' ORDER BY event_object_table
+
+[2018-06-23 13:09:40.374][localhost][000338][MYSQL][]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE NOT ISNULL(PARTITION_NAME) AND TABLE_SCHEMA LIKE 'wechat' AND TABLE_NAME LIKE 'order_shutcut' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2018-06-23 13:09:42.21][localhost][000338][MYSQL][]
+SHOW FULL TABLES WHERE Table_type != 'VIEW'
+
+[2018-06-23 13:09:42.227][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 13:09:42.23][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `order_shutcut` 
+
+[2018-06-23 13:09:42.232][localhost][000338][MYSQL][]
+SHOW FULL COLUMNS FROM `order_shutcut`
+
+[2018-06-23 13:09:42.238][localhost][000338][MYSQL][]
+SHOW INDEX FROM `order_shutcut`
+
+[2018-06-23 13:09:42.239][localhost][000338][MYSQL][]
+SELECT action_order, event_object_table, trigger_name, event_manipulation, event_object_table, definer, action_statement, action_timing FROM information_schema.triggers WHERE BINARY event_object_schema = 'wechat' AND BINARY event_object_table = 'order_shutcut' ORDER BY event_object_table
+
+[2018-06-23 13:09:42.25][localhost][000338][MYSQL][]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE NOT ISNULL(PARTITION_NAME) AND TABLE_SCHEMA LIKE 'wechat' AND TABLE_NAME LIKE 'order_shutcut' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2018-06-23 13:09:45.326][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order_shutcut` LIMIT 0, 1000
+
+[2018-06-23 13:09:45.328][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order_shutcut`
+
+[2018-06-23 13:09:45.337][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 13:09:45.339][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order_shutcut`
+
+[2018-06-23 13:09:51.985][localhost][000338][MYSQL][]
+DELETE FROM `wechat`.`order_shutcut` WHERE `id` = 1
+
+[2018-06-23 13:10:05.082][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order_shutcut` LIMIT 0, 1000
+
+[2018-06-23 13:10:05.087][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order_shutcut`
+
+[2018-06-23 13:10:05.095][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 13:10:05.097][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order_shutcut`
+
+[2018-06-23 13:10:11.573][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 13:10:11.576][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `order_shutcut` 
+
+[2018-06-23 13:10:11.577][localhost][000338][MYSQL][]
+SHOW FULL COLUMNS FROM `order_shutcut`
+
+[2018-06-23 13:10:11.583][localhost][000338][MYSQL][]
+SHOW INDEX FROM `order_shutcut`
+
+[2018-06-23 13:10:11.587][localhost][000338][MYSQL][]
+SELECT action_order, event_object_table, trigger_name, event_manipulation, event_object_table, definer, action_statement, action_timing FROM information_schema.triggers WHERE BINARY event_object_schema = 'wechat' AND BINARY event_object_table = 'order_shutcut' ORDER BY event_object_table
+
+[2018-06-23 13:10:11.595][localhost][000338][MYSQL][]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE NOT ISNULL(PARTITION_NAME) AND TABLE_SCHEMA LIKE 'wechat' AND TABLE_NAME LIKE 'order_shutcut' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2018-06-23 13:10:11.624][localhost][000338][MYSQL][]
+SHOW DATABASES
+
+[2018-06-23 13:10:11.64][localhost][000338][MYSQL][]
+SELECT DISTINCT(TABLESPACE_NAME) AS TABLESPACE_NAME FROM information_schema.FILES WHERE NOT ISNULL(TABLESPACE_NAME)
+
+[2018-06-23 13:10:23.478][localhost][000338][MYSQL][]
+ALTER TABLE `wechat`.`order_shutcut` AUTO_INCREMENT = 1
+
+[2018-06-23 13:10:23.596][localhost][000338][MYSQL][]
+SHOW FULL TABLES WHERE Table_type != 'VIEW'
+
+[2018-06-23 13:10:23.606][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 13:10:23.611][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `order_shutcut` 
+
+[2018-06-23 13:10:23.612][localhost][000338][MYSQL][]
+SHOW FULL COLUMNS FROM `order_shutcut`
+
+[2018-06-23 13:10:23.622][localhost][000338][MYSQL][]
+SHOW INDEX FROM `order_shutcut`
+
+[2018-06-23 13:10:23.625][localhost][000338][MYSQL][]
+SELECT action_order, event_object_table, trigger_name, event_manipulation, event_object_table, definer, action_statement, action_timing FROM information_schema.triggers WHERE BINARY event_object_schema = 'wechat' AND BINARY event_object_table = 'order_shutcut' ORDER BY event_object_table
+
+[2018-06-23 13:10:23.635][localhost][000338][MYSQL][]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE NOT ISNULL(PARTITION_NAME) AND TABLE_SCHEMA LIKE 'wechat' AND TABLE_NAME LIKE 'order_shutcut' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2018-06-23 13:10:33.133][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order'
+
+[2018-06-23 13:10:33.134][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `order` 
+
+[2018-06-23 13:10:33.136][localhost][000338][MYSQL][]
+SHOW FULL COLUMNS FROM `order`
+
+[2018-06-23 13:10:33.143][localhost][000338][MYSQL][]
+SHOW INDEX FROM `order`
+
+[2018-06-23 13:10:33.145][localhost][000338][MYSQL][]
+SELECT action_order, event_object_table, trigger_name, event_manipulation, event_object_table, definer, action_statement, action_timing FROM information_schema.triggers WHERE BINARY event_object_schema = 'wechat' AND BINARY event_object_table = 'order' ORDER BY event_object_table
+
+[2018-06-23 13:10:33.153][localhost][000338][MYSQL][]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE NOT ISNULL(PARTITION_NAME) AND TABLE_SCHEMA LIKE 'wechat' AND TABLE_NAME LIKE 'order' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2018-06-23 13:10:33.182][localhost][000338][MYSQL][]
+SHOW DATABASES
+
+[2018-06-23 13:10:33.201][localhost][000338][MYSQL][]
+SELECT DISTINCT(TABLESPACE_NAME) AS TABLESPACE_NAME FROM information_schema.FILES WHERE NOT ISNULL(TABLESPACE_NAME)
+
+[2018-06-23 13:10:47.034][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order_shutcut` LIMIT 0, 1000
+
+[2018-06-23 13:10:47.035][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order_shutcut`
+
+[2018-06-23 13:10:47.041][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 13:10:47.043][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order_shutcut`
+
+[2018-06-23 13:10:50.178][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order` LIMIT 0, 1000
+
+[2018-06-23 13:10:50.182][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order`
+
+[2018-06-23 13:10:50.189][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order'
+
+[2018-06-23 13:10:50.19][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order`
+
+[2018-06-23 13:11:58.5][localhost][000338][MYSQL][]
+DELETE FROM `wechat`.`order` WHERE `id` = 6
+
+[2018-06-23 13:12:02.91][localhost][000338][MYSQL][]
+DELETE FROM `wechat`.`order_shutcut` WHERE `id` = 1
+
+[2018-06-23 13:12:08.689][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order'
+
+[2018-06-23 13:12:08.691][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `order` 
+
+[2018-06-23 13:12:08.693][localhost][000338][MYSQL][]
+SHOW FULL COLUMNS FROM `order`
+
+[2018-06-23 13:12:08.698][localhost][000338][MYSQL][]
+SHOW INDEX FROM `order`
+
+[2018-06-23 13:12:08.7][localhost][000338][MYSQL][]
+SELECT action_order, event_object_table, trigger_name, event_manipulation, event_object_table, definer, action_statement, action_timing FROM information_schema.triggers WHERE BINARY event_object_schema = 'wechat' AND BINARY event_object_table = 'order' ORDER BY event_object_table
+
+[2018-06-23 13:12:08.71][localhost][000338][MYSQL][]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE NOT ISNULL(PARTITION_NAME) AND TABLE_SCHEMA LIKE 'wechat' AND TABLE_NAME LIKE 'order' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2018-06-23 13:12:08.739][localhost][000338][MYSQL][]
+SHOW DATABASES
+
+[2018-06-23 13:12:08.753][localhost][000338][MYSQL][]
+SELECT DISTINCT(TABLESPACE_NAME) AS TABLESPACE_NAME FROM information_schema.FILES WHERE NOT ISNULL(TABLESPACE_NAME)
+
+[2018-06-23 13:12:14.12][localhost][000338][MYSQL][]
+ALTER TABLE `wechat`.`order` AUTO_INCREMENT = 1
+
+[2018-06-23 13:12:14.166][localhost][000338][MYSQL][]
+SHOW FULL TABLES WHERE Table_type != 'VIEW'
+
+[2018-06-23 13:12:14.171][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order'
+
+[2018-06-23 13:12:14.176][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `order` 
+
+[2018-06-23 13:12:14.177][localhost][000338][MYSQL][]
+SHOW FULL COLUMNS FROM `order`
+
+[2018-06-23 13:12:14.182][localhost][000338][MYSQL][]
+SHOW INDEX FROM `order`
+
+[2018-06-23 13:12:14.183][localhost][000338][MYSQL][]
+SELECT action_order, event_object_table, trigger_name, event_manipulation, event_object_table, definer, action_statement, action_timing FROM information_schema.triggers WHERE BINARY event_object_schema = 'wechat' AND BINARY event_object_table = 'order' ORDER BY event_object_table
+
+[2018-06-23 13:12:14.192][localhost][000338][MYSQL][]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE NOT ISNULL(PARTITION_NAME) AND TABLE_SCHEMA LIKE 'wechat' AND TABLE_NAME LIKE 'order' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2018-06-23 13:12:20.141][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 13:12:20.144][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `order_shutcut` 
+
+[2018-06-23 13:12:20.145][localhost][000338][MYSQL][]
+SHOW FULL COLUMNS FROM `order_shutcut`
+
+[2018-06-23 13:12:20.15][localhost][000338][MYSQL][]
+SHOW INDEX FROM `order_shutcut`
+
+[2018-06-23 13:12:20.152][localhost][000338][MYSQL][]
+SELECT action_order, event_object_table, trigger_name, event_manipulation, event_object_table, definer, action_statement, action_timing FROM information_schema.triggers WHERE BINARY event_object_schema = 'wechat' AND BINARY event_object_table = 'order_shutcut' ORDER BY event_object_table
+
+[2018-06-23 13:12:20.161][localhost][000338][MYSQL][]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE NOT ISNULL(PARTITION_NAME) AND TABLE_SCHEMA LIKE 'wechat' AND TABLE_NAME LIKE 'order_shutcut' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2018-06-23 13:12:20.192][localhost][000338][MYSQL][]
+SHOW DATABASES
+
+[2018-06-23 13:12:20.208][localhost][000338][MYSQL][]
+SELECT DISTINCT(TABLESPACE_NAME) AS TABLESPACE_NAME FROM information_schema.FILES WHERE NOT ISNULL(TABLESPACE_NAME)
+
+[2018-06-23 13:12:25.788][localhost][000338][MYSQL][]
+ALTER TABLE `wechat`.`order_shutcut` AUTO_INCREMENT = 1
+
+[2018-06-23 13:12:25.835][localhost][000338][MYSQL][]
+SHOW FULL TABLES WHERE Table_type != 'VIEW'
+
+[2018-06-23 13:12:25.839][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 13:12:25.843][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `order_shutcut` 
+
+[2018-06-23 13:12:25.845][localhost][000338][MYSQL][]
+SHOW FULL COLUMNS FROM `order_shutcut`
+
+[2018-06-23 13:12:25.85][localhost][000338][MYSQL][]
+SHOW INDEX FROM `order_shutcut`
+
+[2018-06-23 13:12:25.852][localhost][000338][MYSQL][]
+SELECT action_order, event_object_table, trigger_name, event_manipulation, event_object_table, definer, action_statement, action_timing FROM information_schema.triggers WHERE BINARY event_object_schema = 'wechat' AND BINARY event_object_table = 'order_shutcut' ORDER BY event_object_table
+
+[2018-06-23 13:12:25.861][localhost][000338][MYSQL][]
+SELECT TABLE_NAME, PARTITION_NAME, SUBPARTITION_NAME, PARTITION_METHOD, SUBPARTITION_METHOD, PARTITION_EXPRESSION, SUBPARTITION_EXPRESSION, PARTITION_DESCRIPTION, PARTITION_COMMENT, NODEGROUP, TABLESPACE_NAME FROM information_schema.PARTITIONS WHERE NOT ISNULL(PARTITION_NAME) AND TABLE_SCHEMA LIKE 'wechat' AND TABLE_NAME LIKE 'order_shutcut' ORDER BY TABLE_NAME, PARTITION_NAME, PARTITION_ORDINAL_POSITION, SUBPARTITION_ORDINAL_POSITION
+
+[2018-06-23 13:12:32.922][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order_shutcut` LIMIT 0, 1000
+
+[2018-06-23 13:12:32.924][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order_shutcut`
+
+[2018-06-23 13:12:32.936][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 13:12:32.937][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order_shutcut`
+
+[2018-06-23 13:12:38.744][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order` LIMIT 0, 1000
+
+[2018-06-23 13:12:38.747][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order`
+
+[2018-06-23 13:12:38.757][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order'
+
+[2018-06-23 13:12:38.758][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order`
+
+[2018-06-23 13:27:59.307][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order` LIMIT 0, 1000
+
+[2018-06-23 13:27:59.308][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order`
+
+[2018-06-23 13:27:59.314][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order'
+
+[2018-06-23 13:27:59.315][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order`
+
+[2018-06-23 14:04:21.347][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`pre_img` LIMIT 0, 1000
+
+[2018-06-23 14:04:21.35][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`pre_img`
+
+[2018-06-23 14:04:21.355][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'pre_img'
+
+[2018-06-23 14:04:21.356][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`pre_img`
+
+[2018-06-23 14:04:41.295][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`product` LIMIT 0, 1000
+
+[2018-06-23 14:04:41.298][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`product`
+
+[2018-06-23 14:04:41.302][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'product'
+
+[2018-06-23 14:04:41.303][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`product`
+
+[2018-06-23 14:24:04.016][localhost][000338][MYSQL][]
+UPDATE `wechat`.`order` SET `state` = 'pay' WHERE `id` = 1
+
+[2018-06-23 14:24:04.016][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order` WHERE `id` = 1
+
+[2018-06-23 15:02:50.923][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`cart` LIMIT 0, 1000
+
+[2018-06-23 15:02:50.925][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`cart`
+
+[2018-06-23 15:02:50.944][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'cart'
+
+[2018-06-23 15:02:50.945][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`cart`
+
+[2018-06-23 15:02:53.265][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`cart` LIMIT 0, 1000
+
+[2018-06-23 15:02:53.266][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`cart`
+
+[2018-06-23 15:02:53.277][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'cart'
+
+[2018-06-23 15:02:53.278][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`cart`
+
+[2018-06-23 15:37:58.256][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order` LIMIT 0, 1000
+
+[2018-06-23 15:37:58.257][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order`
+
+[2018-06-23 15:37:58.28][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order'
+
+[2018-06-23 15:37:58.283][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order`
+
+[2018-06-23 16:40:38.014][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order_shutcut` LIMIT 0, 1000
+
+[2018-06-23 16:40:38.016][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order_shutcut`
+
+[2018-06-23 16:40:38.041][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 16:40:38.044][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order_shutcut`
+
+[2018-06-23 16:40:41.531][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order` LIMIT 0, 1000
+
+[2018-06-23 16:40:41.532][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order`
+
+[2018-06-23 16:40:41.548][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order'
+
+[2018-06-23 16:40:41.55][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order`
+
+[2018-06-23 17:09:20.046][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order` LIMIT 0, 1000
+
+[2018-06-23 17:09:20.05][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order`
+
+[2018-06-23 17:09:20.068][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order'
+
+[2018-06-23 17:09:20.07][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order`
+
+[2018-06-23 17:09:23.677][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order_shutcut` LIMIT 0, 1000
+
+[2018-06-23 17:09:23.681][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order_shutcut`
+
+[2018-06-23 17:09:23.699][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 17:09:23.701][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order_shutcut`
+
+[2018-06-23 17:18:25.383][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order_shutcut` LIMIT 0, 1000
+
+[2018-06-23 17:18:25.387][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order_shutcut`
+
+[2018-06-23 17:18:25.413][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 17:18:25.416][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order_shutcut`
+
+[2018-06-23 17:18:27.191][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order_shutcut` LIMIT 0, 1000
+
+[2018-06-23 17:18:27.193][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order_shutcut`
+
+[2018-06-23 17:18:27.215][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order_shutcut'
+
+[2018-06-23 17:18:27.218][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order_shutcut`
+
+[2018-06-23 17:18:30.519][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order` LIMIT 0, 1000
+
+[2018-06-23 17:18:30.522][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order`
+
+[2018-06-23 17:18:30.544][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order'
+
+[2018-06-23 17:18:30.547][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order`
+
+[2018-06-23 17:18:32.73][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order` LIMIT 0, 1000
+
+[2018-06-23 17:18:32.731][localhost][000339][MYSQL][]
+SHOW COLUMNS FROM `wechat`.`order`
+
+[2018-06-23 17:18:32.746][localhost][000338][MYSQL][]
+SHOW TABLE STATUS LIKE 'order'
+
+[2018-06-23 17:18:32.748][localhost][000338][MYSQL][]
+SHOW CREATE TABLE `wechat`.`order`
+
+[2018-06-23 19:25:10.134][localhost][000338][MYSQL][]
+SHOW TABLE STATUS
+
+[2018-06-23 19:25:10.308][localhost][000338][MYSQL][]
+SELECT TABLE_NAME, CHECK_OPTION, IS_UPDATABLE, SECURITY_TYPE, DEFINER FROM INFORMATION_SCHEMA.VIEWS WHERE TABLE_SCHEMA = 'wechat' ORDER BY TABLE_NAME ASC
+
+[2018-06-23 19:25:10.341][localhost][000338][MYSQL][]
+SHOW PROCEDURE STATUS WHERE Db = 'wechat'
+
+[2018-06-23 19:25:10.386][localhost][000338][MYSQL][]
+SHOW FUNCTION STATUS WHERE Db = 'wechat'
+
+[2018-06-23 19:25:10.394][localhost][000338][MYSQL][]
+SELECT * FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA = 'wechat' ORDER BY ROUTINE_NAME
+
+[2018-06-23 19:25:10.438][localhost][000338][MYSQL][]
+SELECT EVENT_CATALOG, EVENT_SCHEMA, EVENT_NAME, DEFINER, TIME_ZONE, EVENT_DEFINITION, EVENT_BODY, EVENT_TYPE, SQL_MODE, STATUS, EXECUTE_AT, INTERVAL_VALUE, INTERVAL_FIELD, STARTS, ENDS, ON_COMPLETION, CREATED, LAST_ALTERED, LAST_EXECUTED, ORIGINATOR, CHARACTER_SET_CLIENT, COLLATION_CONNECTION, DATABASE_COLLATION, EVENT_COMMENT FROM information_schema.EVENTS WHERE EVENT_SCHEMA = 'wechat' ORDER BY EVENT_NAME ASC
+
+[2018-06-23 19:25:34.873][localhost][000339][MYSQL][]
+SHOW TABLE STATUS
+
+[2018-06-23 19:25:34.89][localhost][000339][MYSQL][]
+SELECT action_order, event_object_table, trigger_name, event_manipulation, event_object_table, definer, action_statement, action_timing FROM information_schema.triggers WHERE BINARY event_object_schema = 'wechat' ORDER BY event_object_table
+
+[2018-06-23 19:25:34.969][localhost][000338][MYSQL][]
+SELECT COUNT(1) FROM `wechat`.`admin`
+
+[2018-06-23 19:25:34.992][localhost][000338][MYSQL][]
+SELECT COUNT(1) FROM `wechat`.`cart`
+
+[2018-06-23 19:25:34.993][localhost][000338][MYSQL][]
+SELECT COUNT(1) FROM `wechat`.`class`
+
+[2018-06-23 19:25:34.993][localhost][000338][MYSQL][]
+SELECT COUNT(1) FROM `wechat`.`detail`
+
+[2018-06-23 19:25:34.993][localhost][000338][MYSQL][]
+SELECT COUNT(1) FROM `wechat`.`email_reg`
+
+[2018-06-23 19:25:34.993][localhost][000338][MYSQL][]
+SELECT COUNT(1) FROM `wechat`.`emcode`
+
+[2018-06-23 19:25:34.994][localhost][000338][MYSQL][]
+SELECT COUNT(1) FROM `wechat`.`main_class`
+
+[2018-06-23 19:25:34.994][localhost][000338][MYSQL][]
+SELECT COUNT(1) FROM `wechat`.`member`
+
+[2018-06-23 19:25:34.994][localhost][000338][MYSQL][]
+SELECT COUNT(1) FROM `wechat`.`order`
+
+[2018-06-23 19:25:34.994][localhost][000338][MYSQL][]
+SELECT COUNT(1) FROM `wechat`.`order_shutcut`
+
+[2018-06-23 19:25:34.995][localhost][000338][MYSQL][]
+SELECT COUNT(1) FROM `wechat`.`pre_img`
+
+[2018-06-23 19:25:34.995][localhost][000338][MYSQL][]
+SELECT COUNT(1) FROM `wechat`.`product`
+
+[2018-06-23 19:25:34.995][localhost][000338][MYSQL][]
+SELECT COUNT(1) FROM `wechat`.`telcode`
+
+[2018-06-23 19:25:34.997][localhost][000339][MYSQL][]
+SHOW CREATE TABLE `admin` 
+
+[2018-06-23 19:25:35.019][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`admin`
+
+[2018-06-23 19:25:35.039][localhost][000339][MYSQL][]
+SHOW CREATE TABLE `cart` 
+
+[2018-06-23 19:25:35.04][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`cart`
+
+[2018-06-23 19:25:35.046][localhost][000339][MYSQL][]
+SHOW CREATE TABLE `class` 
+
+[2018-06-23 19:25:35.047][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`class`
+
+[2018-06-23 19:25:35.057][localhost][000339][MYSQL][]
+SHOW CREATE TABLE `detail` 
+
+[2018-06-23 19:25:35.058][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`detail`
+
+[2018-06-23 19:25:35.115][localhost][000339][MYSQL][]
+SHOW CREATE TABLE `email_reg` 
+
+[2018-06-23 19:25:35.117][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`email_reg`
+
+[2018-06-23 19:25:35.127][localhost][000339][MYSQL][]
+SHOW CREATE TABLE `emcode` 
+
+[2018-06-23 19:25:35.128][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`emcode`
+
+[2018-06-23 19:25:35.135][localhost][000339][MYSQL][]
+SHOW CREATE TABLE `main_class` 
+
+[2018-06-23 19:25:35.136][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`main_class`
+
+[2018-06-23 19:25:35.145][localhost][000339][MYSQL][]
+SHOW CREATE TABLE `member` 
+
+[2018-06-23 19:25:35.146][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`member`
+
+[2018-06-23 19:25:35.153][localhost][000339][MYSQL][]
+SHOW CREATE TABLE `order` 
+
+[2018-06-23 19:25:35.153][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order`
+
+[2018-06-23 19:25:35.159][localhost][000339][MYSQL][]
+SHOW CREATE TABLE `order_shutcut` 
+
+[2018-06-23 19:25:35.16][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`order_shutcut`
+
+[2018-06-23 19:25:35.164][localhost][000339][MYSQL][]
+SHOW CREATE TABLE `pre_img` 
+
+[2018-06-23 19:25:35.165][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`pre_img`
+
+[2018-06-23 19:25:35.173][localhost][000339][MYSQL][]
+SHOW CREATE TABLE `product` 
+
+[2018-06-23 19:25:35.174][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`product`
+
+[2018-06-23 19:25:35.18][localhost][000339][MYSQL][]
+SHOW CREATE TABLE `telcode` 
+
+[2018-06-23 19:25:35.18][localhost][000338][MYSQL][]
+SELECT * FROM `wechat`.`telcode`
+
