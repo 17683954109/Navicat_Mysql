@@ -11,7 +11,7 @@
  Target Server Version : 50553
  File Encoding         : 65001
 
- Date: 23/06/2018 19:38:46
+ Date: 25/06/2018 20:03:34
 */
 
 SET NAMES utf8mb4;
@@ -35,7 +35,7 @@ CREATE TABLE `admin`  (
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO `admin` VALUES (1, 'all', '935915822', 'theshy', 'sss', '2018-06-08 15:53:49', '2018-06-08 15:53:55');
+INSERT INTO `admin` VALUES (1, 'all', '41c03b9519a8eb7b098908ce1d68a0e9fe92327f', '17683954109', NULL, '2018-06-25 10:50:43', '2018-06-25 10:50:45');
 
 -- ----------------------------
 -- Table structure for cart
@@ -48,12 +48,13 @@ CREATE TABLE `cart`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cart
 -- ----------------------------
-INSERT INTO `cart` VALUES (10, '', '17683954109', '2018-06-23 15:07:57', '2018-06-23 19:01:15');
+INSERT INTO `cart` VALUES (11, '', '3252383294@qq.com', '2018-06-24 16:36:22', '2018-06-24 16:39:35');
+INSERT INTO `cart` VALUES (10, '', '17683954109', '2018-06-23 15:07:57', '2018-06-24 16:32:18');
 
 -- ----------------------------
 -- Table structure for class
@@ -138,7 +139,7 @@ CREATE TABLE `email_reg`  (
   `regcode` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of email_reg
@@ -147,6 +148,8 @@ INSERT INTO `email_reg` VALUES (1, '935915822@qq.com', '865244', '41c03b9519a8eb
 INSERT INTO `email_reg` VALUES (2, '726555132@qq.com', '300439', '41c03b9519a8eb7b098908ce1d68a0e9fe92327f');
 INSERT INTO `email_reg` VALUES (3, '987164020@qq.com', '520158', '41c03b9519a8eb7b098908ce1d68a0e9fe92327f');
 INSERT INTO `email_reg` VALUES (4, '17683954109@163.com', '693991', '41c03b9519a8eb7b098908ce1d68a0e9fe92327f');
+INSERT INTO `email_reg` VALUES (5, '3252383294@qq.com', '729061', '41c03b9519a8eb7b098908ce1d68a0e9fe92327f');
+INSERT INTO `email_reg` VALUES (6, '935925822@qq.com', '474056', '41c03b9519a8eb7b098908ce1d68a0e9fe92327f');
 
 -- ----------------------------
 -- Table structure for emcode
@@ -205,7 +208,7 @@ CREATE TABLE `member`  (
   `icon` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 15 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of member
@@ -215,6 +218,7 @@ INSERT INTO `member` VALUES (12, '1529116251', '2018-06-16 10:30:51', NULL, '987
 INSERT INTO `member` VALUES (6, '1529040302', '2018-06-15 13:25:02', NULL, '726555132@qq.com', NULL, '41c03b9519a8eb7b098908ce1d68a0e9fe92327f', NULL, '2018-06-15 13:25:02');
 INSERT INTO `member` VALUES (9, '1529067829', '2018-06-15 21:03:49', NULL, '935915822@qq.com', NULL, '41c03b9519a8eb7b098908ce1d68a0e9fe92327f', NULL, '2018-06-15 21:03:49');
 INSERT INTO `member` VALUES (13, '1529150895', '2018-06-16 20:08:15', NULL, '17683954109@163.com', NULL, '41c03b9519a8eb7b098908ce1d68a0e9fe92327f', NULL, '2018-06-16 20:08:15');
+INSERT INTO `member` VALUES (14, '1529829372', '2018-06-24 16:36:12', NULL, '3252383294@qq.com', NULL, '41c03b9519a8eb7b098908ce1d68a0e9fe92327f', NULL, '2018-06-24 16:36:12');
 
 -- ----------------------------
 -- Table structure for order
@@ -229,14 +233,16 @@ CREATE TABLE `order`  (
   `user` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `proinfo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of order
 -- ----------------------------
 INSERT INTO `order` VALUES (1, '201806231312291770610137', 'pay', '2018-06-23 13:12:29', '2018-06-23 13:12:29', '17683954109', '21:50,18:1,16:1,9:2,14:1,25:1,23:1,22:1');
-INSERT INTO `order` VALUES (2, '201806231328518255443621', 'no pay', '2018-06-23 13:28:51', '2018-06-23 13:28:51', '17683954109', '23:1,6:1');
-INSERT INTO `order` VALUES (6, '201806231901157100216638', 'no pay', '2018-06-23 19:01:15', '2018-06-23 19:01:15', '17683954109', '16:2,18:1');
+INSERT INTO `order` VALUES (7, '201806241547218007492522', 'no pay', '2018-06-24 15:47:21', '2018-06-24 15:47:21', '17683954109', '5:1,6:1,7:1');
+INSERT INTO `order` VALUES (12, '201806241630355820628028', 'no pay', '2018-06-24 16:30:35', '2018-06-24 16:30:35', '17683954109', '5:1');
+INSERT INTO `order` VALUES (15, '201806241636434427142525', 'no pay', '2018-06-24 16:36:43', '2018-06-24 16:36:43', '3252383294@qq.com', '18:1,21:1');
+INSERT INTO `order` VALUES (16, '201806241639354189727804', 'no pay', '2018-06-24 16:39:35', '2018-06-24 16:39:35', '3252383294@qq.com', '18:1');
 
 -- ----------------------------
 -- Table structure for order_shutcut
@@ -249,14 +255,16 @@ CREATE TABLE `order_shutcut`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of order_shutcut
 -- ----------------------------
 INSERT INTO `order_shutcut` VALUES (1, '201806231312291770610137', '21:64.80,18:52.90,16:45.90,9:39.50,14:39.40,25:36.70,23:45.50,22:56.30', '2018-06-23 13:12:29', '2018-06-23 13:12:29');
-INSERT INTO `order_shutcut` VALUES (2, '201806231328518255443621', '23:45.50,6:42.80', '2018-06-23 13:28:51', '2018-06-23 13:28:51');
-INSERT INTO `order_shutcut` VALUES (6, '201806231901157100216638', '16:45.90,18:52.90', '2018-06-23 19:01:15', '2018-06-23 19:01:15');
+INSERT INTO `order_shutcut` VALUES (7, '201806241547218007492522', '5:35.50,6:42.80,7:35.80', '2018-06-24 15:47:21', '2018-06-24 15:47:21');
+INSERT INTO `order_shutcut` VALUES (12, '201806241630355820628028', '5:35.50', '2018-06-24 16:30:35', '2018-06-24 16:30:35');
+INSERT INTO `order_shutcut` VALUES (15, '201806241636434427142525', '18:52.90,21:64.80', '2018-06-24 16:36:43', '2018-06-24 16:36:43');
+INSERT INTO `order_shutcut` VALUES (16, '201806241639354189727804', '18:52.90', '2018-06-24 16:39:35', '2018-06-24 16:39:35');
 
 -- ----------------------------
 -- Table structure for pre_img
@@ -274,34 +282,34 @@ CREATE TABLE `pre_img`  (
 -- ----------------------------
 -- Records of pre_img
 -- ----------------------------
-INSERT INTO `pre_img` VALUES (1, '/images/product/java01.jpg', '2018-06-17 12:15:38', '2018-06-17 12:15:42', 3);
-INSERT INTO `pre_img` VALUES (2, '/images/product/java02.jpg', '2018-06-17 12:16:02', '2018-06-17 12:16:05', 3);
+INSERT INTO `pre_img` VALUES (1, '/images/product/java01.jpg', '2018-06-17 12:15:38', '2018-06-17 12:15:42', 1);
+INSERT INTO `pre_img` VALUES (2, '/images/product/java02.jpg', '2018-06-17 12:16:02', '2018-06-17 12:16:05', 2);
 INSERT INTO `pre_img` VALUES (3, '/images/product/java03.jpg', '2018-06-17 12:16:22', '2018-06-17 12:16:26', 3);
 INSERT INTO `pre_img` VALUES (4, '/images/product/java04.jpg', '2018-06-17 12:16:51', '2018-06-17 12:16:55', 4);
-INSERT INTO `pre_img` VALUES (5, '/images/product/java05.jpg', '2018-06-17 12:17:09', '2018-06-17 12:17:13', 4);
-INSERT INTO `pre_img` VALUES (6, '/images/product/java06.jpg', '2018-06-17 12:17:28', '2018-06-17 12:17:32', 4);
-INSERT INTO `pre_img` VALUES (7, '/images/product/java07.jpg', '2018-06-17 12:18:00', '2018-06-17 12:18:04', 4);
-INSERT INTO `pre_img` VALUES (8, '/images/product/js01.jpg', '2018-06-17 12:18:28', '2018-06-17 12:18:31', 5);
-INSERT INTO `pre_img` VALUES (9, '/images/product/js02.jpg', '2018-06-17 12:18:45', '2018-06-17 12:18:48', 6);
-INSERT INTO `pre_img` VALUES (10, '/images/product/js03.jpg', '2018-06-17 12:19:10', '2018-06-17 12:19:13', 5);
-INSERT INTO `pre_img` VALUES (11, '/images/product/js04.jpg', '2018-06-17 12:19:34', '2018-06-17 12:19:38', 6);
-INSERT INTO `pre_img` VALUES (12, '/images/product/js05.jpg', '2018-06-17 12:19:55', '2018-06-17 12:19:58', 5);
-INSERT INTO `pre_img` VALUES (13, '/images/product/js06.jpg', '2018-06-17 12:20:17', '2018-06-17 12:20:20', 5);
-INSERT INTO `pre_img` VALUES (14, '/images/product/js07.jpg', '2018-06-17 12:20:33', '2018-06-17 12:20:36', 6);
-INSERT INTO `pre_img` VALUES (15, '/images/product/php01.jpg', '2018-06-17 12:21:00', '2018-06-17 12:21:03', 1);
-INSERT INTO `pre_img` VALUES (16, '/images/product/php02.jpg', '2018-06-17 12:21:16', '2018-06-17 12:21:20', 2);
-INSERT INTO `pre_img` VALUES (17, '/images/product/php03.jpg', '2018-06-17 12:21:38', '2018-06-17 12:21:42', 1);
-INSERT INTO `pre_img` VALUES (18, '/images/product/php04.jpg', '2018-06-17 12:21:57', '2018-06-17 12:22:01', 2);
-INSERT INTO `pre_img` VALUES (19, '/images/product/php05.jpg', '2018-06-17 12:22:16', '2018-06-17 12:22:19', 1);
-INSERT INTO `pre_img` VALUES (20, '/images/product/php06.jpg', '2018-06-17 12:23:41', '2018-06-17 12:23:45', 1);
-INSERT INTO `pre_img` VALUES (21, '/images/product/php07.jpg', '2018-06-17 12:24:04', '2018-06-17 12:24:07', 2);
-INSERT INTO `pre_img` VALUES (22, '/images/product/wechat01.jpg', '2018-06-17 12:24:27', '2018-06-17 12:24:30', 8);
-INSERT INTO `pre_img` VALUES (23, '/images/product/wechat02.jpg', '2018-06-17 12:24:57', '2018-06-17 12:25:01', 8);
-INSERT INTO `pre_img` VALUES (24, '/images/product/wechat03.jpg', '2018-06-17 12:25:19', '2018-06-17 12:25:23', 7);
-INSERT INTO `pre_img` VALUES (25, '/images/product/wechat04.jpg', '2018-06-17 12:25:49', '2018-06-17 12:25:53', 8);
-INSERT INTO `pre_img` VALUES (26, '/images/product/wechat05.jpg', '2018-06-17 12:26:19', '2018-06-17 12:26:23', 7);
-INSERT INTO `pre_img` VALUES (27, '/images/product/wechat06.jpg', '2018-06-17 12:26:40', '2018-06-17 12:26:44', 7);
-INSERT INTO `pre_img` VALUES (28, '/images/product/wechat07.jpg', '2018-06-17 12:26:58', '2018-06-17 12:27:02', 7);
+INSERT INTO `pre_img` VALUES (5, '/images/product/java05.jpg', '2018-06-17 12:17:09', '2018-06-17 12:17:13', 5);
+INSERT INTO `pre_img` VALUES (6, '/images/product/java06.jpg', '2018-06-17 12:17:28', '2018-06-17 12:17:32', 6);
+INSERT INTO `pre_img` VALUES (7, '/images/product/java07.jpg', '2018-06-17 12:18:00', '2018-06-17 12:18:04', 7);
+INSERT INTO `pre_img` VALUES (8, '/images/product/js01.jpg', '2018-06-17 12:18:28', '2018-06-17 12:18:31', 8);
+INSERT INTO `pre_img` VALUES (9, '/images/product/js02.jpg', '2018-06-17 12:18:45', '2018-06-17 12:18:48', 9);
+INSERT INTO `pre_img` VALUES (10, '/images/product/js03.jpg', '2018-06-17 12:19:10', '2018-06-17 12:19:13', 10);
+INSERT INTO `pre_img` VALUES (11, '/images/product/js04.jpg', '2018-06-17 12:19:34', '2018-06-17 12:19:38', 11);
+INSERT INTO `pre_img` VALUES (12, '/images/product/js05.jpg', '2018-06-17 12:19:55', '2018-06-17 12:19:58', 12);
+INSERT INTO `pre_img` VALUES (13, '/images/product/js06.jpg', '2018-06-17 12:20:17', '2018-06-17 12:20:20', 13);
+INSERT INTO `pre_img` VALUES (14, '/images/product/js07.jpg', '2018-06-17 12:20:33', '2018-06-17 12:20:36', 14);
+INSERT INTO `pre_img` VALUES (15, '/images/product/php01.jpg', '2018-06-17 12:21:00', '2018-06-17 12:21:03', 15);
+INSERT INTO `pre_img` VALUES (16, '/images/product/php02.jpg', '2018-06-17 12:21:16', '2018-06-17 12:21:20', 16);
+INSERT INTO `pre_img` VALUES (17, '/images/product/php03.jpg', '2018-06-17 12:21:38', '2018-06-17 12:21:42', 17);
+INSERT INTO `pre_img` VALUES (18, '/images/product/php04.jpg', '2018-06-17 12:21:57', '2018-06-17 12:22:01', 18);
+INSERT INTO `pre_img` VALUES (19, '/images/product/php05.jpg', '2018-06-17 12:22:16', '2018-06-17 12:22:19', 19);
+INSERT INTO `pre_img` VALUES (20, '/images/product/php06.jpg', '2018-06-17 12:23:41', '2018-06-17 12:23:45', 20);
+INSERT INTO `pre_img` VALUES (21, '/images/product/php07.jpg', '2018-06-17 12:24:04', '2018-06-17 12:24:07', 21);
+INSERT INTO `pre_img` VALUES (22, '/images/product/wechat01.jpg', '2018-06-17 12:24:27', '2018-06-17 12:24:30', 22);
+INSERT INTO `pre_img` VALUES (23, '/images/product/wechat02.jpg', '2018-06-17 12:24:57', '2018-06-17 12:25:01', 23);
+INSERT INTO `pre_img` VALUES (24, '/images/product/wechat03.jpg', '2018-06-17 12:25:19', '2018-06-17 12:25:23', 24);
+INSERT INTO `pre_img` VALUES (25, '/images/product/wechat04.jpg', '2018-06-17 12:25:49', '2018-06-17 12:25:53', 25);
+INSERT INTO `pre_img` VALUES (26, '/images/product/wechat05.jpg', '2018-06-17 12:26:19', '2018-06-17 12:26:23', 26);
+INSERT INTO `pre_img` VALUES (27, '/images/product/wechat06.jpg', '2018-06-17 12:26:40', '2018-06-17 12:26:44', 27);
+INSERT INTO `pre_img` VALUES (28, '/images/product/wechat07.jpg', '2018-06-17 12:26:58', '2018-06-17 12:27:02', 28);
 
 -- ----------------------------
 -- Table structure for product
