@@ -11,7 +11,7 @@
  Target Server Version : 50553
  File Encoding         : 65001
 
- Date: 25/06/2018 20:03:34
+ Date: 26/06/2018 20:54:56
 */
 
 SET NAMES utf8mb4;
@@ -54,7 +54,7 @@ CREATE TABLE `cart`  (
 -- Records of cart
 -- ----------------------------
 INSERT INTO `cart` VALUES (11, '', '3252383294@qq.com', '2018-06-24 16:36:22', '2018-06-24 16:39:35');
-INSERT INTO `cart` VALUES (10, '', '17683954109', '2018-06-23 15:07:57', '2018-06-24 16:32:18');
+INSERT INTO `cart` VALUES (10, '15:1', '17683954109', '2018-06-23 15:07:57', '2018-06-26 16:07:10');
 
 -- ----------------------------
 -- Table structure for class
@@ -68,20 +68,21 @@ CREATE TABLE `class`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `main_class` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `main_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`class_id`) USING BTREE
 ) ENGINE = MyISAM AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of class
 -- ----------------------------
-INSERT INTO `class` VALUES (1, '入门', 'PHP入门', 1, '2018-06-16 11:25:12', '2018-06-16 11:25:15', 'PHP');
-INSERT INTO `class` VALUES (2, '实战', 'PHP实战', 2, '2018-06-16 11:27:50', '2018-06-16 11:27:53', 'PHP');
-INSERT INTO `class` VALUES (3, 'Java基础', 'Java基础入门', 3, '2018-06-16 11:28:38', '2018-06-16 11:28:41', 'JAVA');
-INSERT INTO `class` VALUES (4, '进阶', 'Java进阶', 4, '2018-06-16 11:29:15', '2018-06-16 11:29:18', 'JAVA');
-INSERT INTO `class` VALUES (5, 'js入门', 'js入门相关', 5, '2018-06-16 11:30:11', '2018-06-16 11:30:14', 'JS');
-INSERT INTO `class` VALUES (6, 'js提升', 'js进阶', 6, '2018-06-16 11:30:41', '2018-06-16 11:30:45', 'JS');
-INSERT INTO `class` VALUES (7, '公众号营销', '微信公众号营销', 7, '2018-06-16 11:31:32', '2018-06-16 11:31:35', 'WeChat');
-INSERT INTO `class` VALUES (8, '小程序', '微信小程序开发', 8, '2018-06-16 15:09:26', '2018-06-16 15:09:30', 'WeChat');
+INSERT INTO `class` VALUES (1, '入门', 'PHP入门', 1, '2018-06-16 11:25:12', '2018-06-16 11:25:15', '1', 'PHP');
+INSERT INTO `class` VALUES (2, '实战', 'PHP实战', 2, '2018-06-16 11:27:50', '2018-06-16 11:27:53', '1', 'PHP');
+INSERT INTO `class` VALUES (3, 'Java基础', 'Java基础入门', 3, '2018-06-16 11:28:38', '2018-06-16 11:28:41', '2', 'JAVA');
+INSERT INTO `class` VALUES (4, '进阶', 'Java进阶', 4, '2018-06-16 11:29:15', '2018-06-16 11:29:18', '2', 'JAVA');
+INSERT INTO `class` VALUES (5, 'js入门', 'js入门相关', 5, '2018-06-16 11:30:11', '2018-06-16 11:30:14', '3', 'JS');
+INSERT INTO `class` VALUES (6, 'js提升', 'js进阶', 6, '2018-06-16 11:30:41', '2018-06-16 11:30:45', '3', 'JS');
+INSERT INTO `class` VALUES (7, '公众号营销', '微信公众号营销', 7, '2018-06-16 11:31:32', '2018-06-16 11:31:35', '4', 'WeChat');
+INSERT INTO `class` VALUES (8, '小程序', '微信小程序开发', 8, '2018-06-16 15:09:26', '2018-06-16 15:09:30', '4', 'WeChat');
 
 -- ----------------------------
 -- Table structure for detail
@@ -89,7 +90,7 @@ INSERT INTO `class` VALUES (8, '小程序', '微信小程序开发', 8, '2018-06
 DROP TABLE IF EXISTS `detail`;
 CREATE TABLE `detail`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `name` varchar(9999) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `detail_id` int(11) NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -100,21 +101,21 @@ CREATE TABLE `detail`  (
 -- ----------------------------
 -- Records of detail
 -- ----------------------------
-INSERT INTO `detail` VALUES (1, 'Java基础入门', '由传智播客高教产品研发部编著的《Java基础入门》为Java基础入门教材，让初学者能达到熟悉Java语言并灵活运用的程度。针对每一个所 讲解的知识点都进行了深入分析，并使用生动形象的情境化举例，将原本复杂的、难于理解的知识点和问题进行简化，真正遵循了由浅入深 、由易到难的学习规律。针对每个知识点，精心设计了相应的经典案例，让学习者不但能掌握和理解这些知识点，并且还可以清楚地知道在 实际工作中如何去运用。', 1, '2018-06-18 14:07:34', '2018-06-18 14:07:37');
-INSERT INTO `detail` VALUES (2, 'Java语言程序设计', 'Java语言的经典教材，多年来畅销不衰。本书全面整合了Java 8的特性，采用“基础优先，问题驱动”的教学方式，循序渐进地介绍了程序设计基础、解决问题的方法、面向对象程序设计、图形用户界面设计、异常处理、I/O和递归等内容', 2, '2018-06-18 14:08:43', '2018-06-18 14:08:46');
-INSERT INTO `detail` VALUES (3, 'Java service实战', '畅销书全新优化和升级，阿里云资深大数据架构师/Java技术专家撰写，Java RESTful Web Service领域独一著作\r\n\r\n　　深刻解读JAX-RS的标准和API设计；Jersey的使用要点和实现原理，以及基于REST的Web服务的设计思想和原则\r\n\r\n　　自第1版发行后，Jersey的版本由2.9更新到了2.22.2，此间REST服务得到了更广泛的认可和使用。与此同时，Java 8、Spring Boot和Docker的爆发式发展，使得Java领域的RESTful开发有了新的发展。因此，本书', 3, '2018-06-18 14:10:00', '2018-06-18 14:10:04');
+INSERT INTO `detail` VALUES (1, 'Java基础入门', '由传智播客高教产品研发部编著的《Java基础入门》为Java基础入门教材，让初学者能达到熟悉Java语言并灵活运用的程度。针对每一个所 讲解的知识点都进行了深入分析，并使用生动形象的情境化举例，将原本复杂的、难于理解的知识点和问题进行简化，真正遵循了由浅入深 、由易到难的学习规律。针对每个知识点，精心设计了相应的经典案例，让学习者不但能掌握和理解这些知识点，并且还可以清楚地知道在 实际工作中如何去运用。', 1, '2018-06-18 14:07:34', '2018-06-26 16:44:53');
+INSERT INTO `detail` VALUES (2, 'Java语言程序设计', 'Java语言的经典教材，多年来畅销不衰。本书全面整合了Java 8的特性，采用“基础优先，问题驱动”的教学方式，循序渐进地介绍了程序设计基础、解决问题的方法、面向对象程序设计、图形用户界面设计、异常处理、I/O和递归等内容。', 2, '2018-06-18 14:08:43', '2018-06-26 17:42:12');
+INSERT INTO `detail` VALUES (3, 'Java service实战', '畅销书全新优化和升级，阿里云资深大数据架构师/Java技术专家撰写，Java RESTful Web Service领域独一著作\n\n　　深刻解读JAX-RS的标准和API设计；Jersey的使用要点和实现原理，以及基于REST的Web服务的设计思想和原则\n\n　　自第1版发行后，Jersey的版本由2.9更新到了2.22.2，此间REST服务得到了更广泛的认可和使用。与此同时，Java 8、Spring Boot和Docker的爆发式发展，使得Java领域的RESTful开发有了新的发展。', 3, '2018-06-18 14:10:00', '2018-06-26 16:42:42');
 INSERT INTO `detail` VALUES (4, 'Java核心技术精讲', '视频讲解 49小时大型同步视频讲解（光盘中），把市场价值1000元的名师课堂搬回家；\r\n　　案例教学 全书有506个实例、6大案例源程序分析，用实例、案例学习最快捷；\r\n　　实战应用 以实战应用、就业实践为目的，拒绝纸上谈兵；\r\n　　名师编著 由具有多年软件开发和培训经验、著有教材4部、北京魔乐科技实训中心知名实战派讲师李兴华编著，确保图书的实战性及优良品质；\r\n　　配套完善 网站或者光盘提供了电子教案、教学课件、习题答案、交流论坛、源程序等大量学习资源。赠送Oracle数据库学习视频。', 4, '2018-06-18 14:11:04', '2018-06-18 14:11:06');
 INSERT INTO `detail` VALUES (5, 'Java web开发技术详解', '《Tomcat与Java Web开发技术详解（第2版）》语言深入浅出、通俗易懂，无论对于Java Web开发的新手还是行家来说，《Tomcat与Java Web开发技术详解》都是精通Tomcat和开发Java Web应用的必备的实用手册。《Tomcat与Java Web开发技术详解（第2版）》还可作为高校相关专业学生学习Java Web开发的参考书，以及企业Java Web培训教材，也可作为SUN公司的SCWCD（SUN Certified Web Component Developer）认证的辅导教材。', 5, '2018-06-18 14:12:19', '2018-06-18 14:12:21');
 INSERT INTO `detail` VALUES (6, 'Java8函数式编程', '对于有经验的Java程序员来说，全面了解Java 8引入的Lambda表达式是当务之急。本书作者是资深Java开发者、英国伦敦Java社区负责人，英文原版深受好评，被誉为学习Lambda表达式的必读佳作。这本书言简意赅，示例精到，全面介绍了因为Lambda表达式的引入，Java这门世界上流行的语言都发生了哪些重大变化，以及匿名函数将如何重塑Java的编程范式。全书篇幅不长，环环相扣，读来令人手不释卷。\r\n　　函数式编程的确能大幅提升编程效率，但它也并不高深，绝非少数人的游戏。本书可以让所有Java程序员平', 6, '2018-06-18 14:13:16', '2018-06-18 14:13:19');
-INSERT INTO `detail` VALUES (7, 'Java程序设计基础', '各方好评：该书是“中国书刊发行协会”鼎力推荐的教材，曾被该协会评为优秀教材之一。自该书问世以来就受到读者的热烈好评，累计印刷23次，销售100000余册。已被全国120多所高校选作教材，好评如潮。\r\n\r\n结构合理：该教材除了通俗易懂、由浅入深、循序渐进的优点外，还彰显了抓住关键，突出重点，分解难点的编写特色，每个例题都突出一个编程知识点，正是这种对知识点的透彻分析和灵活实用的举例而深受读者的欢迎，使读者感到学习Java编程是一种兴趣，而兴趣又成为学习动力，这些都归功于教材对内容的精选和组织结构的合理性，充', 7, '2018-06-18 14:14:11', '2018-06-18 14:14:14');
+INSERT INTO `detail` VALUES (7, 'Java程序设计基础', '各方好评：该书是“中国书刊发行协会”鼎力推荐的教材，曾被该协会评为优秀教材之一。自该书问世以来就受到读者的热烈好评，累计印刷23次，销售100000余册。已被全国120多所高校选作教材，好评如潮。\n\n结构合理：该教材除了通俗易懂、由浅入深、循序渐进的优点外，还彰显了抓住关键，突出重点，分解难点的编写特色，每个例题都突出一个编程知识点，正是这种对知识点的透彻分析和灵活实用的举例而深受读者的欢迎，使读者感到学习Java编程是一种兴趣，而兴趣又成为学习动力，这些都归功于教材对内容的精选和组织结构的合理性，充份性。', 7, '2018-06-18 14:14:11', '2018-06-26 16:43:38');
 INSERT INTO `detail` VALUES (8, '深入理解JavaScript', '本书针对JavaScript初学者，帮助读者掌握JavaScript开发的精髓。每一章从教授语言的一个主题开始，给出了实践以及解决实际缺陷的指南，然后深入到相关的信息。本书帮助入门的程序员理解基础知识，掌握核心实践，甚至深入了解一些实践方法的优缺点，做到知其然且知其所以然。\r\n《JavaScript启示录》一书作者Cody Lindley鼎力推荐\r\n喜欢，又或是不喜欢，JavaScript都在那里，日夜相随，不离不弃。JavaScript正越来越多地出现在我们的生活中，从浏览器到服务端，再到移动端。想要学', 8, '2018-06-18 14:15:05', '2018-06-18 14:15:07');
 INSERT INTO `detail` VALUES (9, 'JavaScript框架设计', '本书全面讲解了JavaScript框架设计及相关的知识，主要内容包括种子模块、语言模块、浏览器嗅探与特征侦测、类工厂、选择器引擎、节点模块、数据缓存模块、样式模块、属性模块、PC端和移动端的事件系统、jQuery的事件系统、异步模型、数据交互模块、动画引擎、MVVM、前端模板（静态模板）、MVVM的动态模板、性能墙与复杂墙、组件、jQuery时代的组件方案、avalon2的组件方案、react的组件方案等。 \r\n本书适合前端设计人员、JavaScript开发者、移动UI设计者、程序员和项目经理阅读，也可作', 9, '2018-06-18 14:15:55', '2018-06-18 14:15:57');
 INSERT INTO `detail` VALUES (10, 'JavaScript之美', '本书由多位JavaScript专家倾情奉献，他们将带你以独特的视角了解JavaScript。每章的作者都是相关领域的专家，比如Jacob Thornton、Ariya Hidayat和Sara Chipps。JavaScript是他们的挚爱。他们分享了自己喜欢JavaScript的哪些特点，将JavaScript令人兴奋的特征转换为有用的工具或将其作为自我表达的工具。', 10, '2018-06-18 14:16:41', '2018-06-18 14:16:44');
 INSERT INTO `detail` VALUES (11, '你不知道的JavaScript', 'JavaScript语言有很多复杂的概念，但却用简单的方式体现出来（比如回调函数），因此，JavaScript开发者无需理解语言内部的原理，就能编写出功能全面的程序。然而，JavaScript的这些复杂精妙的概念才是语言的精髓，即使是经验丰富的JavaScript开发者，如果没有认真学习，也无法真正理解语言本身的特性。正是因为绝大多数人不求甚解，一遇到出乎意料的行为就认为是语言本身有缺陷，进而把相关的特性加入黑名单，久而久之就排除了这门语言的多样性，人为地使它变得不完整、不安全。\r\n\r\n“你不知道的Jav', 11, '2018-06-18 14:17:32', '2018-06-18 14:17:34');
-INSERT INTO `detail` VALUES (12, 'JavaScript语言精粹', 'JavaScript 曾是“世界上误解的语言”，因为它担负太多的特性，包括糟糕的交互和失败的设计，但随着Ajax 的到来，JavaScript“从受误解的编程语言演变为非常流行的语言”，这除了幸运之外，也证明了它其实是一门优秀的语言。Douglas Crockford 在本书中剥开了JavaScript 沾污的外衣，抽离出一个具有更好可靠性、可读性和可维护性的JavaScript 子集，让你看到一门优雅的、轻量级的和非常富有表现力的语言。作者从语法、对象、函数、继承、数组、正则表达式、方法、样式和优美的特', 12, '2018-06-18 14:18:20', '2018-06-18 14:18:23');
-INSERT INTO `detail` VALUES (13, 'JavaScript设计模式', '《JavaScript设计模式》是JavaScript设计模式的学习指南。全书分为14章。首先介绍了什么是模式、模式的结构、类别、模式的分类、如何编写模式等等；然后，集中介绍了很多流行的设计模式在JavaScript中的应用，包括Module（模块）模式、Observer（观察者）模式、Facade（外观）模式和Mediator（中介者）模式；最后，还探讨了模块化的JavaScript模式、jQuery及其插件中的设计模式。\r\n　　《JavaScript设计模式》适合专业的Web开发人员和前端工程师阅读。', 13, '2018-06-18 14:19:07', '2018-06-18 14:19:10');
-INSERT INTO `detail` VALUES (14, 'JavaScript动态网页编程', '是用于Web开发的主要脚本语言，可以应用于客户端编程、服务器端编程以及Ajax应用开发。本书详细地介绍了动态网页编程技术及其在Web开发中的应用。本书共分11章，主要内容包括：使用基础、HTML语言、CSS样式表、语言基础、流程控制语句、面向对象编程、流览器对象模型、文档对象模型、事件处理、表单与表单域、XMLHttpRequest对象。本书结构合理、论述准确、内容翔实，通过大量的实例深入浅出、循序渐进地引导读者学习，每章后面均配有习题和上机实验。\r\n本书既可作为中等、高等职业院校计算机相关专业或培训班的', 14, '2018-06-18 14:20:28', '2018-06-18 14:20:32');
-INSERT INTO `detail` VALUES (15, 'PHP从入门到精通', '《PHP 7从入门到精通（视频教学版）》循序渐进地介绍了PHP 7开发动态网站的主要知识和技能，提供了大量的PHP应用实例供读者实践。每一章节都清晰讲述了代码作用及其编写思路，使读者能在*短时间内迅速掌握PHP的应用开发技能。\r\n\r\n　　全书共23章，分别介绍了PHP 7的基本概念、PHP服务器环境配置、PHP的基本语法、PHP的语言结构、字符串和正则表达式、数组、时间和日期、面向对象编程、错误处理和异常处理、PHP与Web页面交互、文件与目录操作、图形图像处理、Cookie和会话管理、MySQL数据库基础。', 15, '2018-06-18 14:21:16', '2018-06-18 14:21:18');
+INSERT INTO `detail` VALUES (12, 'JavaScript语言精粹', 'JavaScript 曾是“世界上误解的语言”，因为它担负太多的特性，包括糟糕的交互和失败的设计，但随着Ajax 的到来，JavaScript“从受误解的编程语言演变为非常流行的语言”，这除了幸运之外，也证明了它其实是一门优秀的语言。Douglas Crockford 在本书中剥开了JavaScript 沾污的外衣，抽离出一个具有更好可靠性、可读性和可维护性的JavaScript 子集，让你看到一门优雅的、轻量级的和非常富有表现力的语言。作者从语法、对象、函数、继承、数组、正则表达式、方法、样式和优美的特点。', 12, '2018-06-18 14:18:20', '2018-06-26 16:16:25');
+INSERT INTO `detail` VALUES (13, 'JavaScript设计模式', '《JavaScript设计模式》是JavaScript设计模式的学习指南。全书分为14章。首先介绍了什么是模式、模式的结构、类别、模式的分类、如何编写模式等等；然后，集中介绍了很多流行的设计模式在JavaScript中的应用，包括Module（模块）模式、Observer（观察者）模式、Facade（外观）模式和Mediator（中介者）模式；最后，还探讨了模块化的JavaScript模式、jQuery及其插件中的设计模式。\n　　《JavaScript设计模式》适合专业的Web开发人员和前端工程师阅读。', 13, '2018-06-18 14:19:07', '2018-06-26 16:17:34');
+INSERT INTO `detail` VALUES (14, 'JavaScript动态网页编程', '       JavaScript是用于Web开发的主要脚本语言，可以应用于客户端编程、服务器端编程以及Ajax应用开发。本书详细地介绍了动态网页编程技术及其在Web开发中的应用。本书共分11章，主要内容包括：使用基础、HTML语言、CSS样式表、语言基础、流程控制语句、面向对象编程、流览器对象模型、文档对象模型、事件处理、表单与表单域、XMLHttpRequest对象。本书结构合理、论述准确、内容翔实，通过大量的实例深入浅出、循序渐进地引导读者学习，每章后面均配有习题和上机实验。\n本书可作为中等、高等职业院校计算机相关专业或培训班的资料参考。', 14, '2018-06-18 14:20:28', '2018-06-26 16:19:34');
+INSERT INTO `detail` VALUES (15, 'PHP从入门到精通', '《PHP 7从入门到精通（视频教学版）》循序渐进地介绍了PHP 7开发动态网站的主要知识和技能，提供了大量的PHP应用实例供读者实践。每一章节都清晰讲述了代码作用及其编写思路，使读者能在*短时间内迅速掌握PHP的应用开发技能。\n\n　　全书共23章，分别介绍了PHP 7的基本概念、PHP服务器环境配置、PHP的基本语法、PHP的语言结构、字符串和正则表达式、数组、时间和日期、面向对象编程、错误处理和异常处理、PHP与Web页面交互、文件与目录操作、图形图像处理、Cookie和会话管理、MySQL数据库基础。', 15, '2018-06-18 14:21:16', '2018-06-26 15:46:26');
 INSERT INTO `detail` VALUES (16, 'PHP7编程实战', 'PHP 7挟大量的、强大的新功能和工具迅猛而来，使用这些功能和工具可以优化代码，编写出比旧PHP版本程序速度更快的程序。本书着重介绍了PHP 7相关的中高级PHP编程技术。书中的所有范例程序都源于现实情况，旨在帮助PHP开发者解决经常遇到的现实问题。此外，本书还介绍了向下兼容性故障，并在需要修改PHP 5代码的情况中提供了大量的指导意见，也介绍了*新的PHP 7.X功能。学过本书介绍的知识后，你将拥有必备的工具和技术，从而能够为网站开发出高效的应用程序。', 16, '2018-06-18 14:22:19', '2018-06-18 14:22:22');
 INSERT INTO `detail` VALUES (17, '从零开始学PHP', '《从零开始学PHP（第3版）》是关于PHP 的入门教程。PHP 作为一种被广泛应用的Web 语言，由于其自身的优秀特性，已经有越来越多的网站采用PHP 技术开发，尤其Web 2.0 网站对它格外垂青。本书共4 篇，包括22 章的内容。第一篇主要讲解了PHP 程序语言，包括PHP 环境的搭建、基础知识、常用流程控制、常用函数、数组的操作。第二篇主要分析了PHP 的一些参考函数，讲解了浏览器和输入/输出、文件目录类、数据处理类、图形图表类、电子邮件类和数据库类。第三篇详细介绍了PHP 高级开发的内容，主要包括', 17, '2018-06-18 14:23:06', '2018-06-18 14:23:08');
 INSERT INTO `detail` VALUES (18, 'PHP编程实战', 'Web网站的专门化和多元化发展趋势，要求网页编程语言必须满足编写出运行速度快、节省资源且具有较高安全性动态网页的需求。本书介绍的PHP 7网页编程语言就是其中的佼佼者。本书由13章构成，详细介绍了PHP 7的新增功能和中高级PHP技术，包括安装和配置PHP 7开发环境的入门知识、PHP 7的新增功能、PHP中的函数式编程功能、PHP面向对象编程功能的基础知识、使用命名空间和特性（trait）的方式、从数据库读取数据和向数据库中写入数据的方式、创建HTML表单元素的类的方式、过滤与验证数据的方式、实现SOA', 18, '2018-06-18 14:24:08', '2018-06-18 14:24:10');
@@ -277,7 +278,7 @@ CREATE TABLE `pre_img`  (
   `updated_at` timestamp NULL DEFAULT NULL,
   `detail_id` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 29 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 50 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of pre_img
@@ -343,7 +344,7 @@ INSERT INTO `product` VALUES (11, '你不知道的JavaScript', '/images/product/
 INSERT INTO `product` VALUES (12, 'JavaScript语言精粹', '/images/product/js05.jpg', '2018-06-17 12:42:43', '2018-06-17 12:42:47', 42.90, 5);
 INSERT INTO `product` VALUES (13, 'JavaScript设计模式', '/images/product/js06.jpg', '2018-06-17 12:43:09', '2018-06-17 12:43:12', 53.50, 5);
 INSERT INTO `product` VALUES (14, 'JavaScript动态网页编程', '/images/product/js07.jpg', '2018-06-17 12:43:41', '2018-06-17 12:43:43', 39.40, 6);
-INSERT INTO `product` VALUES (15, 'PHP从入门到精通', '/images/product/php01.jpg', '2018-06-17 12:44:09', '2018-06-17 12:44:11', 52.30, 1);
+INSERT INTO `product` VALUES (15, 'PHP从入门到精通', '/images/product/php01.jpg', '2018-06-17 12:44:09', '2018-06-26 15:46:26', 52.30, 1);
 INSERT INTO `product` VALUES (16, 'PHP7编程实战', '/images/product/php02.jpg', '2018-06-17 12:44:40', '2018-06-17 12:44:42', 45.90, 2);
 INSERT INTO `product` VALUES (17, '从零开始学PHP', '/images/product/php03.jpg', '2018-06-17 12:45:17', '2018-06-17 12:45:20', 39.40, 1);
 INSERT INTO `product` VALUES (18, 'PHP编程实战', '/images/product/php04.jpg', '2018-06-17 12:45:50', '2018-06-17 12:45:53', 52.90, 2);
@@ -375,5 +376,26 @@ CREATE TABLE `telcode`  (
 -- ----------------------------
 INSERT INTO `telcode` VALUES (1, '17683954109', 455069, '2018-06-15 21:17:55');
 INSERT INTO `telcode` VALUES (2, '13403007220', 557822, '2018-06-14 10:46:50');
+
+-- ----------------------------
+-- Table structure for temp_img
+-- ----------------------------
+DROP TABLE IF EXISTS `temp_img`;
+CREATE TABLE `temp_img`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `path` varchar(9999) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of temp_img
+-- ----------------------------
+INSERT INTO `temp_img` VALUES (1, '/upload/jpg/20a7aa0cce69917add8bff0c93755cee.jpg', '2018-06-26 20:06:40', '2018-06-26 20:06:40');
+INSERT INTO `temp_img` VALUES (2, '/upload/jpg/94d71a498d9bfea63bcf6702d76ee011.jpg', '2018-06-26 20:06:53', '2018-06-26 20:06:53');
+INSERT INTO `temp_img` VALUES (3, '/upload/jpg/c63b21053e1a7a7b294d594dd241c4e0.jpg', '2018-06-26 20:08:03', '2018-06-26 20:08:03');
+INSERT INTO `temp_img` VALUES (4, '/upload/jpg/25aedecf58f9a146029a036984a16c44.jpg', '2018-06-26 20:08:18', '2018-06-26 20:08:18');
+INSERT INTO `temp_img` VALUES (5, '/upload/jpg/d0e86c9dd6304978c5c9256e587437a6.jpg', '2018-06-26 20:21:48', '2018-06-26 20:21:48');
 
 SET FOREIGN_KEY_CHECKS = 1;
