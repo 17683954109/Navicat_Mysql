@@ -11,7 +11,7 @@
  Target Server Version : 50553
  File Encoding         : 65001
 
- Date: 26/06/2018 20:54:56
+ Date: 27/06/2018 20:33:01
 */
 
 SET NAMES utf8mb4;
@@ -54,7 +54,7 @@ CREATE TABLE `cart`  (
 -- Records of cart
 -- ----------------------------
 INSERT INTO `cart` VALUES (11, '', '3252383294@qq.com', '2018-06-24 16:36:22', '2018-06-24 16:39:35');
-INSERT INTO `cart` VALUES (10, '15:1', '17683954109', '2018-06-23 15:07:57', '2018-06-26 16:07:10');
+INSERT INTO `cart` VALUES (10, '', '17683954109', '2018-06-23 15:07:57', '2018-06-27 14:22:26');
 
 -- ----------------------------
 -- Table structure for class
@@ -64,25 +64,23 @@ CREATE TABLE `class`  (
   `class_id` int(11) NOT NULL AUTO_INCREMENT,
   `class_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `preview` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `detail_id` int(11) NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `main_class` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `main_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`class_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of class
 -- ----------------------------
-INSERT INTO `class` VALUES (1, '入门', 'PHP入门', 1, '2018-06-16 11:25:12', '2018-06-16 11:25:15', '1', 'PHP');
-INSERT INTO `class` VALUES (2, '实战', 'PHP实战', 2, '2018-06-16 11:27:50', '2018-06-16 11:27:53', '1', 'PHP');
-INSERT INTO `class` VALUES (3, 'Java基础', 'Java基础入门', 3, '2018-06-16 11:28:38', '2018-06-16 11:28:41', '2', 'JAVA');
-INSERT INTO `class` VALUES (4, '进阶', 'Java进阶', 4, '2018-06-16 11:29:15', '2018-06-16 11:29:18', '2', 'JAVA');
-INSERT INTO `class` VALUES (5, 'js入门', 'js入门相关', 5, '2018-06-16 11:30:11', '2018-06-16 11:30:14', '3', 'JS');
-INSERT INTO `class` VALUES (6, 'js提升', 'js进阶', 6, '2018-06-16 11:30:41', '2018-06-16 11:30:45', '3', 'JS');
-INSERT INTO `class` VALUES (7, '公众号营销', '微信公众号营销', 7, '2018-06-16 11:31:32', '2018-06-16 11:31:35', '4', 'WeChat');
-INSERT INTO `class` VALUES (8, '小程序', '微信小程序开发', 8, '2018-06-16 15:09:26', '2018-06-16 15:09:30', '4', 'WeChat');
+INSERT INTO `class` VALUES (1, '入门', 'PHP入门', '2018-06-16 11:25:12', '2018-06-16 11:25:15', '1', 'PHP');
+INSERT INTO `class` VALUES (2, '实战', 'PHP实战', '2018-06-16 11:27:50', '2018-06-16 11:27:53', '1', 'PHP');
+INSERT INTO `class` VALUES (3, 'Java基础', 'Java基础入门', '2018-06-16 11:28:38', '2018-06-16 11:28:41', '2', 'JAVA');
+INSERT INTO `class` VALUES (4, '进阶', 'Java进阶', '2018-06-16 11:29:15', '2018-06-16 11:29:18', '2', 'JAVA');
+INSERT INTO `class` VALUES (5, 'js入门', 'js入门相关', '2018-06-16 11:30:11', '2018-06-16 11:30:14', '3', 'JS');
+INSERT INTO `class` VALUES (7, '公众号营销', '微信公众号营销', '2018-06-16 11:31:32', '2018-06-16 11:31:35', '4', 'WeChat');
+INSERT INTO `class` VALUES (8, '小程序', '微信小程序开发', '2018-06-16 15:09:26', '2018-06-16 15:09:30', '4', 'WeChat');
 
 -- ----------------------------
 -- Table structure for detail
@@ -96,7 +94,7 @@ CREATE TABLE `detail`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 29 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 39 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of detail
@@ -109,9 +107,9 @@ INSERT INTO `detail` VALUES (5, 'Java web开发技术详解', '《Tomcat与Java 
 INSERT INTO `detail` VALUES (6, 'Java8函数式编程', '对于有经验的Java程序员来说，全面了解Java 8引入的Lambda表达式是当务之急。本书作者是资深Java开发者、英国伦敦Java社区负责人，英文原版深受好评，被誉为学习Lambda表达式的必读佳作。这本书言简意赅，示例精到，全面介绍了因为Lambda表达式的引入，Java这门世界上流行的语言都发生了哪些重大变化，以及匿名函数将如何重塑Java的编程范式。全书篇幅不长，环环相扣，读来令人手不释卷。\r\n　　函数式编程的确能大幅提升编程效率，但它也并不高深，绝非少数人的游戏。本书可以让所有Java程序员平', 6, '2018-06-18 14:13:16', '2018-06-18 14:13:19');
 INSERT INTO `detail` VALUES (7, 'Java程序设计基础', '各方好评：该书是“中国书刊发行协会”鼎力推荐的教材，曾被该协会评为优秀教材之一。自该书问世以来就受到读者的热烈好评，累计印刷23次，销售100000余册。已被全国120多所高校选作教材，好评如潮。\n\n结构合理：该教材除了通俗易懂、由浅入深、循序渐进的优点外，还彰显了抓住关键，突出重点，分解难点的编写特色，每个例题都突出一个编程知识点，正是这种对知识点的透彻分析和灵活实用的举例而深受读者的欢迎，使读者感到学习Java编程是一种兴趣，而兴趣又成为学习动力，这些都归功于教材对内容的精选和组织结构的合理性，充份性。', 7, '2018-06-18 14:14:11', '2018-06-26 16:43:38');
 INSERT INTO `detail` VALUES (8, '深入理解JavaScript', '本书针对JavaScript初学者，帮助读者掌握JavaScript开发的精髓。每一章从教授语言的一个主题开始，给出了实践以及解决实际缺陷的指南，然后深入到相关的信息。本书帮助入门的程序员理解基础知识，掌握核心实践，甚至深入了解一些实践方法的优缺点，做到知其然且知其所以然。\r\n《JavaScript启示录》一书作者Cody Lindley鼎力推荐\r\n喜欢，又或是不喜欢，JavaScript都在那里，日夜相随，不离不弃。JavaScript正越来越多地出现在我们的生活中，从浏览器到服务端，再到移动端。想要学', 8, '2018-06-18 14:15:05', '2018-06-18 14:15:07');
-INSERT INTO `detail` VALUES (9, 'JavaScript框架设计', '本书全面讲解了JavaScript框架设计及相关的知识，主要内容包括种子模块、语言模块、浏览器嗅探与特征侦测、类工厂、选择器引擎、节点模块、数据缓存模块、样式模块、属性模块、PC端和移动端的事件系统、jQuery的事件系统、异步模型、数据交互模块、动画引擎、MVVM、前端模板（静态模板）、MVVM的动态模板、性能墙与复杂墙、组件、jQuery时代的组件方案、avalon2的组件方案、react的组件方案等。 \r\n本书适合前端设计人员、JavaScript开发者、移动UI设计者、程序员和项目经理阅读，也可作', 9, '2018-06-18 14:15:55', '2018-06-18 14:15:57');
+INSERT INTO `detail` VALUES (9, 'JavaScript框架设计', '本书全面讲解了JavaScript框架设计及相关的知识，主要内容包括种子模块、语言模块、浏览器嗅探与特征侦测、类工厂、选择器引擎、节点模块、数据缓存模块、样式模块、属性模块、PC端和移动端的事件系统、jQuery的事件系统、异步模型、数据交互模块、动画引擎、MVVM、前端模板（静态模板）、MVVM的动态模板、性能墙与复杂墙、组件、jQuery时代的组件方案、avalon2的组件方案、react的组件方案等。 \n本书适合前端设计人员、JavaScript开发者、移动UI设计者、程序员和项目经理阅读，也可作为后端程序员的参考用书。', 9, '2018-06-18 14:15:55', '2018-06-27 14:52:11');
 INSERT INTO `detail` VALUES (10, 'JavaScript之美', '本书由多位JavaScript专家倾情奉献，他们将带你以独特的视角了解JavaScript。每章的作者都是相关领域的专家，比如Jacob Thornton、Ariya Hidayat和Sara Chipps。JavaScript是他们的挚爱。他们分享了自己喜欢JavaScript的哪些特点，将JavaScript令人兴奋的特征转换为有用的工具或将其作为自我表达的工具。', 10, '2018-06-18 14:16:41', '2018-06-18 14:16:44');
-INSERT INTO `detail` VALUES (11, '你不知道的JavaScript', 'JavaScript语言有很多复杂的概念，但却用简单的方式体现出来（比如回调函数），因此，JavaScript开发者无需理解语言内部的原理，就能编写出功能全面的程序。然而，JavaScript的这些复杂精妙的概念才是语言的精髓，即使是经验丰富的JavaScript开发者，如果没有认真学习，也无法真正理解语言本身的特性。正是因为绝大多数人不求甚解，一遇到出乎意料的行为就认为是语言本身有缺陷，进而把相关的特性加入黑名单，久而久之就排除了这门语言的多样性，人为地使它变得不完整、不安全。\r\n\r\n“你不知道的Jav', 11, '2018-06-18 14:17:32', '2018-06-18 14:17:34');
+INSERT INTO `detail` VALUES (11, '你不知道的JavaScript', 'JavaScript语言有很多复杂的概念，但却用简单的方式体现出来（比如回调函数），因此，JavaScript开发者无需理解语言内部的原理，就能编写出功能全面的程序。然而，JavaScript的这些复杂精妙的概念才是语言的精髓，即使是经验丰富的JavaScript开发者，如果没有认真学习，也无法真正理解语言本身的特性。正是因为绝大多数人不求甚解，一遇到出乎意料的行为就认为是语言本身有缺陷，进而把相关的特性加入黑名单，久而久之就排除了这门语言的多样性，人为地使它变得不完整、不安全。\n\n“你不知道的JavaScript\"', 11, '2018-06-18 14:17:32', '2018-06-27 14:33:44');
 INSERT INTO `detail` VALUES (12, 'JavaScript语言精粹', 'JavaScript 曾是“世界上误解的语言”，因为它担负太多的特性，包括糟糕的交互和失败的设计，但随着Ajax 的到来，JavaScript“从受误解的编程语言演变为非常流行的语言”，这除了幸运之外，也证明了它其实是一门优秀的语言。Douglas Crockford 在本书中剥开了JavaScript 沾污的外衣，抽离出一个具有更好可靠性、可读性和可维护性的JavaScript 子集，让你看到一门优雅的、轻量级的和非常富有表现力的语言。作者从语法、对象、函数、继承、数组、正则表达式、方法、样式和优美的特点。', 12, '2018-06-18 14:18:20', '2018-06-26 16:16:25');
 INSERT INTO `detail` VALUES (13, 'JavaScript设计模式', '《JavaScript设计模式》是JavaScript设计模式的学习指南。全书分为14章。首先介绍了什么是模式、模式的结构、类别、模式的分类、如何编写模式等等；然后，集中介绍了很多流行的设计模式在JavaScript中的应用，包括Module（模块）模式、Observer（观察者）模式、Facade（外观）模式和Mediator（中介者）模式；最后，还探讨了模块化的JavaScript模式、jQuery及其插件中的设计模式。\n　　《JavaScript设计模式》适合专业的Web开发人员和前端工程师阅读。', 13, '2018-06-18 14:19:07', '2018-06-26 16:17:34');
 INSERT INTO `detail` VALUES (14, 'JavaScript动态网页编程', '       JavaScript是用于Web开发的主要脚本语言，可以应用于客户端编程、服务器端编程以及Ajax应用开发。本书详细地介绍了动态网页编程技术及其在Web开发中的应用。本书共分11章，主要内容包括：使用基础、HTML语言、CSS样式表、语言基础、流程控制语句、面向对象编程、流览器对象模型、文档对象模型、事件处理、表单与表单域、XMLHttpRequest对象。本书结构合理、论述准确、内容翔实，通过大量的实例深入浅出、循序渐进地引导读者学习，每章后面均配有习题和上机实验。\n本书可作为中等、高等职业院校计算机相关专业或培训班的资料参考。', 14, '2018-06-18 14:20:28', '2018-06-26 16:19:34');
@@ -125,10 +123,7 @@ INSERT INTO `detail` VALUES (21, 'PHP与MySQL权威指南', '《PHP与MySQL指�
 INSERT INTO `detail` VALUES (22, '微信小程序', '零基础学习微信小程序开发，精选5个案例详细讲解，手把手带领读者快速入门小程序开发。\r\n\r\n　　从开发思路、技术，到使用工具与案例，涉及小程序开发的方方面面\r\n\r\n　　本书精选了5个案例：电影、驾考、打赏、日程表、电商；案例由浅入深，可以拿来即用，涉及登录态、支付流程、第三方API接入等常用技术点。本书在小程序技术基础上增加了基本CSS布局知识点，讲解细腻，手把手带领读者快速入门小程序开发。', 22, '2018-06-18 14:27:42', '2018-06-18 14:27:45');
 INSERT INTO `detail` VALUES (23, '微信小程序运营实战', '本书为以下企业人员提供阅读帮助：\r\n\r\n　　服务类垂直领域的企业\r\n\r\n　　满足用户低频、非刚性需求的企业\r\n\r\n　　创业公司、小微企业\r\n\r\n　　想要实施或正在实施互联网化转型的传统企业\r\n\r\n　　数据要求不复杂的企业\r\n\r\n　　餐馆、酒店等线下场景中的企业', 23, '2018-06-18 14:28:28', '2018-06-18 14:28:31');
 INSERT INTO `detail` VALUES (24, '微信公众号营销一本通', '\'微信公众号营销一本通\'详细介绍了微信公众号营销的各种理念和技巧。以微信公众号为切入点 精xuan多个微信公众号营销的成功实例构建全文。全书共分基础篇、运用篇和实践篇三篇 全面解析微信公众号的基础知识、运营思路、营销战术 以及推广方法和步骤 是*具实操性的微信营销、宣传、创业的宝典。', 24, '2018-06-18 14:29:18', '2018-06-18 14:29:20');
-INSERT INTO `detail` VALUES (25, '微信小程序开发入门及案例详解', '零基础学习微信小程序开发，精选5个案例详细讲解，手把手带领读者快速入门小程序开发。\r\n\r\n　　从开发思路、技术，到使用工具与案例，涉及小程序开发的方方面面\r\n\r\n　　本书精选了5个案例：电影、驾考、打赏、日程表、电商；案例由浅入深，可以拿来即用，涉及登录态、支付流程、第三方API接入等常用技术点。本书在小程序技术基础上增加了基本CSS布局知识点，讲解细腻，手把手带领读者快速入门小程序开发。', 25, '2018-06-18 14:30:33', '2018-06-18 14:30:36');
-INSERT INTO `detail` VALUES (26, '一本书读懂微信公众营销', '本书是一本全面揭秘微信营销技巧的专著，先对比时下为流行的营销方式，展现微信营销的强大发展前景；其次介绍微信的热点功能和新增功能，助力用户玩转微信；然后讲解微信公众平台的应用，从粉丝互动、消息推送两方面总结了微信营销的技巧；后从不同行业与个人入手，讲解微信营销成功实例，总结营销秘诀。同时讲解了微信营销的常见陷阱与风险防控手段，让您一书在手，即可玩转微信、弄懂微信营销，从菜鸟成为达人，从新手成为微信营销高手！ 本书的主要：13章专题内容详解＋20多条营销专家指点＋70多个微信营销成功案例＋470多张实战作图片', 26, '2018-06-18 14:31:40', '2018-06-18 14:31:43');
-INSERT INTO `detail` VALUES (27, '微信营销、运营全面解析', '如果说是传统移动互联网用户之间沟通的根基，那么微信就是移动互联网用户之间、用户与企业之间的沟通工具。《微信营销、运营全面解析》以知名微信营销专家马佳彬老师多年的网络营销经验和对微信营销的研究及实战成果为基础，根据不同群体的需求，从理论层面到实战操作，全面系统地介绍微信营销的核心价值、会给商家企业带来哪些机遇、微信实操运营的技巧，并从专业的角度对多个行业微信营销方案进行深度剖析，总结出可行性思路供读者参考。', 27, '2018-06-18 14:32:38', '2018-06-18 14:32:41');
-INSERT INTO `detail` VALUES (28, '微信营销与运营实操手册', '微信营销轻松赚钱时代已过，你还在微信群里狂发推销信息吗？你知道如何使自己的微信公众账号脱颖而出吗？你了解什么样的内容会让粉丝欲罢不能吗？\r\n\r\n这是一本深入浅出地介绍微信营销的工具书，也是一本系统分析企业制定微信营销策略的指导书。书中不仅有宏观分析和系统的方法论，更重要的是从始至终贯穿实操性极强的解决方案，并着重讲述了不同行业的微信营销成功案例与技巧。\r\n\r\n《微信营销与运营实操手册》深入剖析了微信的5大营销优势、7大商业模式、6种粉丝转化途径，涵盖近20个行业的营销实例，从入门到策略到实践，让你轻松搞定', 28, '2018-06-18 14:33:31', '2018-06-18 14:33:33');
+INSERT INTO `detail` VALUES (38, '色色色的', '水阿哥忽悠的固有', 40, '2018-06-27 17:23:51', '2018-06-27 17:23:51');
 
 -- ----------------------------
 -- Table structure for email_reg
@@ -182,17 +177,17 @@ CREATE TABLE `main_class`  (
   `preview` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `class_det` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`class_id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of main_class
 -- ----------------------------
-INSERT INTO `main_class` VALUES (1, 'PHP', '服务器脚本语言', '2018-06-16 09:18:02', '2018-06-16 09:18:07', '1,2');
-INSERT INTO `main_class` VALUES (2, 'JAVA', '优秀的编程语言', '2018-06-16 09:23:03', '2018-06-16 09:23:07', '3,4');
-INSERT INTO `main_class` VALUES (3, 'JS', '客户端脚本语言', '2018-06-16 09:23:40', '2018-06-16 09:23:43', '5,6');
-INSERT INTO `main_class` VALUES (4, 'WeChat', '微信官方小程序', '2018-06-16 10:33:28', '2018-06-16 10:33:31', '7,8');
+INSERT INTO `main_class` VALUES (1, 'PHP', '服务器脚本语言', '2018-06-16 09:18:02', '2018-06-16 09:18:07');
+INSERT INTO `main_class` VALUES (2, 'JAVA', '优秀的编程语言', '2018-06-16 09:23:03', '2018-06-16 09:23:07');
+INSERT INTO `main_class` VALUES (3, 'JS', '客户端脚本语言', '2018-06-16 09:23:40', '2018-06-16 09:23:43');
+INSERT INTO `main_class` VALUES (4, 'WeChat', '微信官方小程序', '2018-06-16 10:33:28', '2018-06-16 10:33:31');
+INSERT INTO `main_class` VALUES (6, 'opensuse', 'linux152', '2018-06-27 14:06:32', '2018-06-27 19:56:14');
 
 -- ----------------------------
 -- Table structure for member
@@ -202,7 +197,7 @@ CREATE TABLE `member`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nick_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `member_sex` enum('男,女') CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `member_sex` enum('男','女') CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `email` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `phone` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
@@ -214,12 +209,12 @@ CREATE TABLE `member`  (
 -- ----------------------------
 -- Records of member
 -- ----------------------------
-INSERT INTO `member` VALUES (11, '1529068405', '2018-06-15 21:13:25', NULL, NULL, '17683954109', '41c03b9519a8eb7b098908ce1d68a0e9fe92327f', NULL, '2018-06-15 21:13:25');
-INSERT INTO `member` VALUES (12, '1529116251', '2018-06-16 10:30:51', NULL, '987164020@qq.com', NULL, '41c03b9519a8eb7b098908ce1d68a0e9fe92327f', NULL, '2018-06-16 10:30:51');
-INSERT INTO `member` VALUES (6, '1529040302', '2018-06-15 13:25:02', NULL, '726555132@qq.com', NULL, '41c03b9519a8eb7b098908ce1d68a0e9fe92327f', NULL, '2018-06-15 13:25:02');
-INSERT INTO `member` VALUES (9, '1529067829', '2018-06-15 21:03:49', NULL, '935915822@qq.com', NULL, '41c03b9519a8eb7b098908ce1d68a0e9fe92327f', NULL, '2018-06-15 21:03:49');
-INSERT INTO `member` VALUES (13, '1529150895', '2018-06-16 20:08:15', NULL, '17683954109@163.com', NULL, '41c03b9519a8eb7b098908ce1d68a0e9fe92327f', NULL, '2018-06-16 20:08:15');
-INSERT INTO `member` VALUES (14, '1529829372', '2018-06-24 16:36:12', NULL, '3252383294@qq.com', NULL, '41c03b9519a8eb7b098908ce1d68a0e9fe92327f', NULL, '2018-06-24 16:36:12');
+INSERT INTO `member` VALUES (11, '1529068405', '2018-06-15 21:13:25', '男', NULL, '17683954109', '41c03b9519a8eb7b098908ce1d68a0e9fe92327f', NULL, '2018-06-15 21:13:25');
+INSERT INTO `member` VALUES (12, '1529116251', '2018-06-16 10:30:51', '男', '987164020@qq.com', NULL, '41c03b9519a8eb7b098908ce1d68a0e9fe92327f', NULL, '2018-06-16 10:30:51');
+INSERT INTO `member` VALUES (6, '1529040302', '2018-06-15 13:25:02', '男', '726555132@qq.com', NULL, '41c03b9519a8eb7b098908ce1d68a0e9fe92327f', NULL, '2018-06-15 13:25:02');
+INSERT INTO `member` VALUES (9, '1529067829', '2018-06-15 21:03:49', '男', '935915822@qq.com', NULL, '41c03b9519a8eb7b098908ce1d68a0e9fe92327f', NULL, '2018-06-15 21:03:49');
+INSERT INTO `member` VALUES (13, '1529150895', '2018-06-16 20:08:15', '男', '17683954109@163.com', NULL, '41c03b9519a8eb7b098908ce1d68a0e9fe92327f', NULL, '2018-06-16 20:08:15');
+INSERT INTO `member` VALUES (14, '1529829372', '2018-06-24 16:36:12', '女', '3252383294@qq.com', NULL, '41c03b9519a8eb7b098908ce1d68a0e9fe92327f', NULL, '2018-06-24 16:36:12');
 
 -- ----------------------------
 -- Table structure for order
@@ -278,7 +273,7 @@ CREATE TABLE `pre_img`  (
   `updated_at` timestamp NULL DEFAULT NULL,
   `detail_id` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 50 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 67 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of pre_img
@@ -291,12 +286,9 @@ INSERT INTO `pre_img` VALUES (5, '/images/product/java05.jpg', '2018-06-17 12:17
 INSERT INTO `pre_img` VALUES (6, '/images/product/java06.jpg', '2018-06-17 12:17:28', '2018-06-17 12:17:32', 6);
 INSERT INTO `pre_img` VALUES (7, '/images/product/java07.jpg', '2018-06-17 12:18:00', '2018-06-17 12:18:04', 7);
 INSERT INTO `pre_img` VALUES (8, '/images/product/js01.jpg', '2018-06-17 12:18:28', '2018-06-17 12:18:31', 8);
-INSERT INTO `pre_img` VALUES (9, '/images/product/js02.jpg', '2018-06-17 12:18:45', '2018-06-17 12:18:48', 9);
 INSERT INTO `pre_img` VALUES (10, '/images/product/js03.jpg', '2018-06-17 12:19:10', '2018-06-17 12:19:13', 10);
-INSERT INTO `pre_img` VALUES (11, '/images/product/js04.jpg', '2018-06-17 12:19:34', '2018-06-17 12:19:38', 11);
 INSERT INTO `pre_img` VALUES (12, '/images/product/js05.jpg', '2018-06-17 12:19:55', '2018-06-17 12:19:58', 12);
 INSERT INTO `pre_img` VALUES (13, '/images/product/js06.jpg', '2018-06-17 12:20:17', '2018-06-17 12:20:20', 13);
-INSERT INTO `pre_img` VALUES (14, '/images/product/js07.jpg', '2018-06-17 12:20:33', '2018-06-17 12:20:36', 14);
 INSERT INTO `pre_img` VALUES (15, '/images/product/php01.jpg', '2018-06-17 12:21:00', '2018-06-17 12:21:03', 15);
 INSERT INTO `pre_img` VALUES (16, '/images/product/php02.jpg', '2018-06-17 12:21:16', '2018-06-17 12:21:20', 16);
 INSERT INTO `pre_img` VALUES (17, '/images/product/php03.jpg', '2018-06-17 12:21:38', '2018-06-17 12:21:42', 17);
@@ -307,10 +299,7 @@ INSERT INTO `pre_img` VALUES (21, '/images/product/php07.jpg', '2018-06-17 12:24
 INSERT INTO `pre_img` VALUES (22, '/images/product/wechat01.jpg', '2018-06-17 12:24:27', '2018-06-17 12:24:30', 22);
 INSERT INTO `pre_img` VALUES (23, '/images/product/wechat02.jpg', '2018-06-17 12:24:57', '2018-06-17 12:25:01', 23);
 INSERT INTO `pre_img` VALUES (24, '/images/product/wechat03.jpg', '2018-06-17 12:25:19', '2018-06-17 12:25:23', 24);
-INSERT INTO `pre_img` VALUES (25, '/images/product/wechat04.jpg', '2018-06-17 12:25:49', '2018-06-17 12:25:53', 25);
-INSERT INTO `pre_img` VALUES (26, '/images/product/wechat05.jpg', '2018-06-17 12:26:19', '2018-06-17 12:26:23', 26);
-INSERT INTO `pre_img` VALUES (27, '/images/product/wechat06.jpg', '2018-06-17 12:26:40', '2018-06-17 12:26:44', 27);
-INSERT INTO `pre_img` VALUES (28, '/images/product/wechat07.jpg', '2018-06-17 12:26:58', '2018-06-17 12:27:02', 28);
+INSERT INTO `pre_img` VALUES (66, '/upload/jpg/49c651d0a9a7dc6c1294adbea81d0fb6.jpg', '2018-06-27 19:06:39', '2018-06-27 19:06:39', 15);
 
 -- ----------------------------
 -- Table structure for product
@@ -325,7 +314,7 @@ CREATE TABLE `product`  (
   `price` decimal(10, 2) NULL DEFAULT NULL,
   `class_id` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 29 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 41 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product
@@ -338,12 +327,9 @@ INSERT INTO `product` VALUES (5, 'Java web开发技术详解', '/images/product/
 INSERT INTO `product` VALUES (6, 'Java8函数式编程', '/images/product/java06.jpg', '2018-06-17 12:39:30', '2018-06-17 12:39:34', 42.80, 4);
 INSERT INTO `product` VALUES (7, 'Java程序设计基础', '/images/product/java07.jpg', '2018-06-17 12:40:02', '2018-06-17 12:40:05', 35.80, 4);
 INSERT INTO `product` VALUES (8, '深入理解JavaScript', '/images/product/js01.jpg', '2018-06-17 12:40:36', '2018-06-17 12:40:39', 42.90, 5);
-INSERT INTO `product` VALUES (9, 'JavaScript框架设计', '/images/product/js02.jpg', '2018-06-17 12:41:04', '2018-06-17 12:41:08', 39.50, 6);
 INSERT INTO `product` VALUES (10, 'JavaScript之美', '/images/product/js03.jpg', '2018-06-17 12:41:34', '2018-06-17 12:41:38', 52.90, 5);
-INSERT INTO `product` VALUES (11, '你不知道的JavaScript', '/images/product/js04.jpg', '2018-06-17 12:42:10', '2018-06-17 12:42:13', 39.70, 6);
 INSERT INTO `product` VALUES (12, 'JavaScript语言精粹', '/images/product/js05.jpg', '2018-06-17 12:42:43', '2018-06-17 12:42:47', 42.90, 5);
 INSERT INTO `product` VALUES (13, 'JavaScript设计模式', '/images/product/js06.jpg', '2018-06-17 12:43:09', '2018-06-17 12:43:12', 53.50, 5);
-INSERT INTO `product` VALUES (14, 'JavaScript动态网页编程', '/images/product/js07.jpg', '2018-06-17 12:43:41', '2018-06-17 12:43:43', 39.40, 6);
 INSERT INTO `product` VALUES (15, 'PHP从入门到精通', '/images/product/php01.jpg', '2018-06-17 12:44:09', '2018-06-26 15:46:26', 52.30, 1);
 INSERT INTO `product` VALUES (16, 'PHP7编程实战', '/images/product/php02.jpg', '2018-06-17 12:44:40', '2018-06-17 12:44:42', 45.90, 2);
 INSERT INTO `product` VALUES (17, '从零开始学PHP', '/images/product/php03.jpg', '2018-06-17 12:45:17', '2018-06-17 12:45:20', 39.40, 1);
@@ -354,10 +340,6 @@ INSERT INTO `product` VALUES (21, 'PHP与MySQL权威指南', '/images/product/ph
 INSERT INTO `product` VALUES (22, '微信小程序入门', '/images/product/wechat01.jpg', '2018-06-17 12:47:52', '2018-06-17 12:47:54', 56.30, 8);
 INSERT INTO `product` VALUES (23, '微信小程序运营实战', '/images/product/wechat02.jpg', '2018-06-17 12:48:23', '2018-06-17 12:48:25', 45.50, 8);
 INSERT INTO `product` VALUES (24, '微信公众号营销一本通', '/images/product/wechat03.jpg', '2018-06-17 12:48:59', '2018-06-17 12:49:03', 53.90, 7);
-INSERT INTO `product` VALUES (25, '微信小程序开发入门及案例详解', '/images/product/wechat04.jpg', '2018-06-17 12:49:38', '2018-06-17 12:49:41', 36.70, 8);
-INSERT INTO `product` VALUES (26, '一本书读懂微信公众营销', '/images/product/wechat05.jpg', '2018-06-17 12:50:17', '2018-06-17 12:50:20', 39.80, 7);
-INSERT INTO `product` VALUES (27, '微信营销、运营全面解析', '/images/product/wechat06.jpg', '2018-06-17 12:51:00', '2018-06-17 12:51:02', 52.60, 7);
-INSERT INTO `product` VALUES (28, '微信营销与运营实操手册', '/images/product/wechat07.jpg', '2018-06-17 12:51:43', '2018-06-17 12:51:45', 46.30, 7);
 
 -- ----------------------------
 -- Table structure for telcode
@@ -387,15 +369,12 @@ CREATE TABLE `temp_img`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 15 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of temp_img
 -- ----------------------------
-INSERT INTO `temp_img` VALUES (1, '/upload/jpg/20a7aa0cce69917add8bff0c93755cee.jpg', '2018-06-26 20:06:40', '2018-06-26 20:06:40');
-INSERT INTO `temp_img` VALUES (2, '/upload/jpg/94d71a498d9bfea63bcf6702d76ee011.jpg', '2018-06-26 20:06:53', '2018-06-26 20:06:53');
-INSERT INTO `temp_img` VALUES (3, '/upload/jpg/c63b21053e1a7a7b294d594dd241c4e0.jpg', '2018-06-26 20:08:03', '2018-06-26 20:08:03');
-INSERT INTO `temp_img` VALUES (4, '/upload/jpg/25aedecf58f9a146029a036984a16c44.jpg', '2018-06-26 20:08:18', '2018-06-26 20:08:18');
-INSERT INTO `temp_img` VALUES (5, '/upload/jpg/d0e86c9dd6304978c5c9256e587437a6.jpg', '2018-06-26 20:21:48', '2018-06-26 20:21:48');
+INSERT INTO `temp_img` VALUES (10, '/upload/jpg/571eb1edd9330ad9e4b029f45bcbc78d.jpg', '2018-06-27 10:43:47', '2018-06-27 10:43:47');
+INSERT INTO `temp_img` VALUES (7, '/upload/jpg/ac1f46870931b212c1a174a7454110da.jpg', '2018-06-27 10:25:43', '2018-06-27 10:25:43');
 
 SET FOREIGN_KEY_CHECKS = 1;
