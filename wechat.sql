@@ -11,7 +11,7 @@
  Target Server Version : 50553
  File Encoding         : 65001
 
- Date: 27/06/2018 20:33:01
+ Date: 28/06/2018 12:04:25
 */
 
 SET NAMES utf8mb4;
@@ -54,7 +54,7 @@ CREATE TABLE `cart`  (
 -- Records of cart
 -- ----------------------------
 INSERT INTO `cart` VALUES (11, '', '3252383294@qq.com', '2018-06-24 16:36:22', '2018-06-24 16:39:35');
-INSERT INTO `cart` VALUES (10, '', '17683954109', '2018-06-23 15:07:57', '2018-06-27 14:22:26');
+INSERT INTO `cart` VALUES (10, '', '17683954109', '2018-06-23 15:07:57', '2018-06-28 11:52:18');
 
 -- ----------------------------
 -- Table structure for class
@@ -228,17 +228,36 @@ CREATE TABLE `order`  (
   `updated_at` timestamp NULL DEFAULT NULL,
   `user` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `proinfo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `detail_id` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of order
 -- ----------------------------
-INSERT INTO `order` VALUES (1, '201806231312291770610137', 'pay', '2018-06-23 13:12:29', '2018-06-23 13:12:29', '17683954109', '21:50,18:1,16:1,9:2,14:1,25:1,23:1,22:1');
-INSERT INTO `order` VALUES (7, '201806241547218007492522', 'no pay', '2018-06-24 15:47:21', '2018-06-24 15:47:21', '17683954109', '5:1,6:1,7:1');
-INSERT INTO `order` VALUES (12, '201806241630355820628028', 'no pay', '2018-06-24 16:30:35', '2018-06-24 16:30:35', '17683954109', '5:1');
-INSERT INTO `order` VALUES (15, '201806241636434427142525', 'no pay', '2018-06-24 16:36:43', '2018-06-24 16:36:43', '3252383294@qq.com', '18:1,21:1');
-INSERT INTO `order` VALUES (16, '201806241639354189727804', 'no pay', '2018-06-24 16:39:35', '2018-06-24 16:39:35', '3252383294@qq.com', '18:1');
+INSERT INTO `order` VALUES (1, '201806231312291770610137', 'complate', '2018-06-23 13:12:29', '2018-06-28 11:50:25', '17683954109', '24:1', 1);
+INSERT INTO `order` VALUES (17, '201806281152185744000530', 'no pay', '2018-06-28 11:52:18', '2018-06-28 11:52:18', '17683954109', '6:5,7:5', 2);
+INSERT INTO `order` VALUES (15, '201806241636434427142525', 'pay', '2018-06-24 16:36:43', '2018-06-28 11:36:28', '3252383294@qq.com', '18:1,21:1', 2);
+INSERT INTO `order` VALUES (16, '201806241639354189727804', 'no pay', '2018-06-24 16:39:35', '2018-06-24 16:39:35', '3252383294@qq.com', '18:1', 2);
+
+-- ----------------------------
+-- Table structure for order_detail
+-- ----------------------------
+DROP TABLE IF EXISTS `order_detail`;
+CREATE TABLE `order_detail`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NULL DEFAULT NULL,
+  `address` varchar(9999) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of order_detail
+-- ----------------------------
+INSERT INTO `order_detail` VALUES (1, 13, '湖北省恩施州恩施州传媒中心', '17683954109', '张吉洲');
+INSERT INTO `order_detail` VALUES (2, 14, '湖北省恩施州恩施州老街205号', '17683954578', '张吉洲');
 
 -- ----------------------------
 -- Table structure for order_shutcut
@@ -251,14 +270,13 @@ CREATE TABLE `order_shutcut`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of order_shutcut
 -- ----------------------------
-INSERT INTO `order_shutcut` VALUES (1, '201806231312291770610137', '21:64.80,18:52.90,16:45.90,9:39.50,14:39.40,25:36.70,23:45.50,22:56.30', '2018-06-23 13:12:29', '2018-06-23 13:12:29');
-INSERT INTO `order_shutcut` VALUES (7, '201806241547218007492522', '5:35.50,6:42.80,7:35.80', '2018-06-24 15:47:21', '2018-06-24 15:47:21');
-INSERT INTO `order_shutcut` VALUES (12, '201806241630355820628028', '5:35.50', '2018-06-24 16:30:35', '2018-06-24 16:30:35');
+INSERT INTO `order_shutcut` VALUES (1, '201806231312291770610137', '24:52.3', '2018-06-23 13:12:29', '2018-06-23 13:12:29');
+INSERT INTO `order_shutcut` VALUES (17, '201806281152185744000530', '6:42.80,7:35.80', '2018-06-28 11:52:18', '2018-06-28 11:52:18');
 INSERT INTO `order_shutcut` VALUES (15, '201806241636434427142525', '18:52.90,21:64.80', '2018-06-24 16:36:43', '2018-06-24 16:36:43');
 INSERT INTO `order_shutcut` VALUES (16, '201806241639354189727804', '18:52.90', '2018-06-24 16:39:35', '2018-06-24 16:39:35');
 
