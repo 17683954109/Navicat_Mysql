@@ -11,7 +11,7 @@
  Target Server Version : 50553
  File Encoding         : 65001
 
- Date: 29/06/2018 11:44:51
+ Date: 06/07/2018 18:03:58
 */
 
 SET NAMES utf8mb4;
@@ -3214,7 +3214,7 @@ CREATE TABLE `cart`  (
 -- Records of cart
 -- ----------------------------
 INSERT INTO `cart` VALUES (11, '', '3252383294@qq.com', '2018-06-24 16:36:22', '2018-06-24 16:39:35');
-INSERT INTO `cart` VALUES (10, '', '17683954109', '2018-06-23 15:07:57', '2018-06-29 11:33:51');
+INSERT INTO `cart` VALUES (10, '', '17683954109', '2018-06-23 15:07:57', '2018-06-30 13:09:22');
 
 -- ----------------------------
 -- Table structure for cities
@@ -3615,7 +3615,7 @@ CREATE TABLE `detail`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 43 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 45 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of detail
@@ -3645,6 +3645,7 @@ INSERT INTO `detail` VALUES (22, '微信小程序', '零基础学习微信小程
 INSERT INTO `detail` VALUES (23, '微信小程序运营实战', '本书为以下企业人员提供阅读帮助：\r\n\r\n　　服务类垂直领域的企业\r\n\r\n　　满足用户低频、非刚性需求的企业\r\n\r\n　　创业公司、小微企业\r\n\r\n　　想要实施或正在实施互联网化转型的传统企业\r\n\r\n　　数据要求不复杂的企业\r\n\r\n　　餐馆、酒店等线下场景中的企业', 23, '2018-06-18 14:28:28', '2018-06-18 14:28:31');
 INSERT INTO `detail` VALUES (24, '微信公众号营销一本通', '\'微信公众号营销一本通\'详细介绍了微信公众号营销的各种理念和技巧。以微信公众号为切入点 精xuan多个微信公众号营销的成功实例构建全文。全书共分基础篇、运用篇和实践篇三篇 全面解析微信公众号的基础知识、运营思路、营销战术 以及推广方法和步骤 是*具实操性的微信营销、宣传、创业的宝典。', 24, '2018-06-18 14:29:18', '2018-06-28 19:40:38');
 INSERT INTO `detail` VALUES (38, '色色色的', '水阿哥忽悠的固有', 40, '2018-06-27 17:23:51', '2018-06-27 17:23:51');
+INSERT INTO `detail` VALUES (44, 'test', 'testtesttesttesttesttesttesttesttesttesttesttesttest', 46, '2018-06-30 11:15:50', '2018-07-02 08:42:10');
 
 -- ----------------------------
 -- Table structure for email_reg
@@ -3708,7 +3709,6 @@ INSERT INTO `main_class` VALUES (1, 'PHP', '服务器脚本语言', '2018-06-16 
 INSERT INTO `main_class` VALUES (2, 'JAVA', '优秀的编程语言', '2018-06-16 09:23:03', '2018-06-16 09:23:07');
 INSERT INTO `main_class` VALUES (3, 'JS', '客户端脚本语言', '2018-06-16 09:23:40', '2018-06-16 09:23:43');
 INSERT INTO `main_class` VALUES (4, 'WeChat', '微信官方小程序', '2018-06-16 10:33:28', '2018-06-16 10:33:31');
-INSERT INTO `main_class` VALUES (6, 'openSUSE', 'linux的发行版，深受外国网友热爱', '2018-06-27 14:06:32', '2018-06-28 15:10:48');
 
 -- ----------------------------
 -- Table structure for member
@@ -3738,6 +3738,17 @@ INSERT INTO `member` VALUES (13, '1529150895', '2018-06-16 20:08:15', '男', '17
 INSERT INTO `member` VALUES (14, '1529829372', '2018-06-24 16:36:12', '女', '3252383294@qq.com', NULL, '41c03b9519a8eb7b098908ce1d68a0e9fe92327f', NULL, '2018-06-24 16:36:12');
 
 -- ----------------------------
+-- Table structure for migrations
+-- ----------------------------
+DROP TABLE IF EXISTS `migrations`;
+CREATE TABLE `migrations`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
 -- Table structure for order
 -- ----------------------------
 DROP TABLE IF EXISTS `order`;
@@ -3751,12 +3762,14 @@ CREATE TABLE `order`  (
   `proinfo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `detail_id` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 36 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 38 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of order
 -- ----------------------------
 INSERT INTO `order` VALUES (35, '201806291133514928379907', 'no pay', '2018-06-29 11:33:51', '2018-06-29 11:33:51', '17683954109', '17:1', 7);
+INSERT INTO `order` VALUES (36, '201806291231097546455218', 'no pay', '2018-06-29 12:31:09', '2018-06-29 12:31:09', '17683954109', '17:1', 7);
+INSERT INTO `order` VALUES (37, '201806301309225539749813', 'no pay', '2018-06-30 13:09:22', '2018-06-30 13:09:22', '17683954109', '15:1', 3);
 INSERT INTO `order` VALUES (34, '201806291131425297153028', 'no pay', '2018-06-29 11:31:42', '2018-06-29 11:31:42', '17683954109', '17:1', 6);
 
 -- ----------------------------
@@ -3792,11 +3805,13 @@ CREATE TABLE `order_shutcut`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 36 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 38 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of order_shutcut
 -- ----------------------------
+INSERT INTO `order_shutcut` VALUES (37, '201806301309225539749813', '15:52.60', '2018-06-30 13:09:22', '2018-06-30 13:09:22');
+INSERT INTO `order_shutcut` VALUES (36, '201806291231097546455218', '17:39.40', '2018-06-29 12:31:09', '2018-06-29 12:31:09');
 INSERT INTO `order_shutcut` VALUES (35, '201806291133514928379907', '17:39.40', '2018-06-29 11:33:51', '2018-06-29 11:33:51');
 INSERT INTO `order_shutcut` VALUES (34, '201806291131425297153028', '17:39.40', '2018-06-29 11:31:42', '2018-06-29 11:31:42');
 
@@ -3811,7 +3826,7 @@ CREATE TABLE `pre_img`  (
   `updated_at` timestamp NULL DEFAULT NULL,
   `detail_id` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 117 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 125 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of pre_img
@@ -3836,7 +3851,14 @@ INSERT INTO `pre_img` VALUES (21, '/images/product/php07.jpg', '2018-06-17 12:24
 INSERT INTO `pre_img` VALUES (22, '/images/product/wechat01.jpg', '2018-06-17 12:24:27', '2018-06-17 12:24:30', 22);
 INSERT INTO `pre_img` VALUES (23, '/images/product/wechat02.jpg', '2018-06-17 12:24:57', '2018-06-17 12:25:01', 23);
 INSERT INTO `pre_img` VALUES (24, '/images/product/wechat03.jpg', '2018-06-17 12:25:19', '2018-06-17 12:25:23', 24);
+INSERT INTO `pre_img` VALUES (118, '/upload/jpg/c3dc482f4cbe1b45365853a55f5abef3.jpg', '2018-06-29 12:39:04', '2018-06-29 12:39:04', 15);
+INSERT INTO `pre_img` VALUES (119, '/upload/jpg/96b5e5372c174f9caf63ec987572d089.jpg', '2018-06-29 12:39:10', '2018-06-29 12:39:10', 15);
+INSERT INTO `pre_img` VALUES (120, '/upload/jpg/8db5cb781e997962e3e4f97f02624243.jpg', '2018-06-29 12:39:25', '2018-06-29 12:39:25', 1);
+INSERT INTO `pre_img` VALUES (121, '/upload/jpg/1e3618b73c7203f2d3c29287651548f7.jpg', '2018-06-29 12:39:29', '2018-06-29 12:39:29', 1);
+INSERT INTO `pre_img` VALUES (123, '/upload/jpg/a5f16962f03c9c66f776c7a89bfa5bb9.jpg', '2018-06-30 11:15:50', '2018-06-30 11:15:50', 46);
+INSERT INTO `pre_img` VALUES (124, '/upload/jpg/1484ec522aa0ab1b26594c20fe1f608a.jpg', '2018-06-30 11:15:50', '2018-06-30 11:15:50', 46);
 INSERT INTO `pre_img` VALUES (116, '/upload/jpg/9f68a6a7a3d80ac973d73bb3a6826477.jpg', '2018-06-28 16:43:55', '2018-06-28 16:43:55', 15);
+INSERT INTO `pre_img` VALUES (117, '/upload/jpg/5102ecfb0b7ef3e9a733485f9902b7bc.jpg', '2018-06-29 12:38:58', '2018-06-29 12:38:58', 15);
 
 -- ----------------------------
 -- Table structure for product
@@ -3851,12 +3873,12 @@ CREATE TABLE `product`  (
   `price` decimal(10, 2) NULL DEFAULT NULL,
   `class_id` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 45 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 47 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product
 -- ----------------------------
-INSERT INTO `product` VALUES (1, 'Java基础入门', '/images/product/java01.jpg', '2018-06-17 12:36:03', '2018-06-17 12:36:06', 43.50, 3);
+INSERT INTO `product` VALUES (1, 'Java基础入门', '/images/product/java01.jpg', '2018-06-17 12:36:03', '2018-06-29 13:06:27', 43.50, 3);
 INSERT INTO `product` VALUES (2, 'Java语言程序设计', '/images/product/java02.jpg', '2018-06-17 12:36:40', '2018-06-17 12:36:44', 37.80, 3);
 INSERT INTO `product` VALUES (3, 'Java service实战', '/images/product/java03.jpg', '2018-06-17 12:37:21', '2018-06-17 12:37:25', 42.30, 3);
 INSERT INTO `product` VALUES (4, 'Java核心技术精讲', '/images/product/java04.jpg', '2018-06-17 12:38:08', '2018-06-17 12:38:11', 32.80, 4);
@@ -3867,7 +3889,7 @@ INSERT INTO `product` VALUES (8, '深入理解JavaScript', '/images/product/js01
 INSERT INTO `product` VALUES (10, 'JavaScript之美', '/images/product/js03.jpg', '2018-06-17 12:41:34', '2018-06-17 12:41:38', 52.90, 5);
 INSERT INTO `product` VALUES (12, 'JavaScript语言精粹', '/images/product/js05.jpg', '2018-06-17 12:42:43', '2018-06-17 12:42:47', 42.90, 5);
 INSERT INTO `product` VALUES (13, 'JavaScript设计模式', '/images/product/js06.jpg', '2018-06-17 12:43:09', '2018-06-17 12:43:12', 53.50, 5);
-INSERT INTO `product` VALUES (15, 'PHP从入门到精通', '/images/product/php01.jpg', '2018-06-17 12:44:09', '2018-06-26 15:46:26', 52.30, 1);
+INSERT INTO `product` VALUES (15, 'PHP从入门到精通', '/upload/jpg/9f68a6a7a3d80ac973d73bb3a6826477.jpg', '2018-06-17 12:44:09', '2018-06-29 13:05:13', 52.60, 1);
 INSERT INTO `product` VALUES (16, 'PHP7编程实战', '/images/product/php02.jpg', '2018-06-17 12:44:40', '2018-06-17 12:44:42', 45.90, 2);
 INSERT INTO `product` VALUES (17, '从零开始学PHP', '/images/product/php03.jpg', '2018-06-17 12:45:17', '2018-06-17 12:45:20', 39.40, 1);
 INSERT INTO `product` VALUES (18, 'PHP编程实战', '/images/product/php04.jpg', '2018-06-17 12:45:50', '2018-06-17 12:45:53', 52.90, 2);
@@ -3877,6 +3899,7 @@ INSERT INTO `product` VALUES (21, 'PHP与MySQL权威指南', '/images/product/ph
 INSERT INTO `product` VALUES (22, '微信小程序入门', '/images/product/wechat01.jpg', '2018-06-17 12:47:52', '2018-06-17 12:47:54', 56.30, 8);
 INSERT INTO `product` VALUES (23, '微信小程序运营实战', '/images/product/wechat02.jpg', '2018-06-17 12:48:23', '2018-06-17 12:48:25', 45.50, 8);
 INSERT INTO `product` VALUES (24, '微信公众号营销一本通', '/images/product/wechat03.jpg', '2018-06-17 12:48:59', '2018-06-17 12:49:03', 53.90, 7);
+INSERT INTO `product` VALUES (46, 'test', '/upload/jpg/1484ec522aa0ab1b26594c20fe1f608a.jpg', '2018-06-30 11:15:50', '2018-07-02 08:42:10', 52.60, 1);
 
 -- ----------------------------
 -- Table structure for provinces
@@ -3955,7 +3978,7 @@ CREATE TABLE `temp_img`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 27 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 30 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of temp_img
@@ -3976,11 +3999,6 @@ CREATE TABLE `users`  (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of users
--- ----------------------------
-INSERT INTO `users` VALUES (1, 'TheShy', '17683954109@163.com', '$2y$10$yurimYK7CTMW.cWXSC4pyu/wiCEBxxFLTLFF30ZeIGeFOOAVwt07e', 'o9gSnmEDvST7d2ii9SJ43bJmwCvab5mchdrirqy2kleWjrbEyoCIixkGqpDD', '2018-06-28 17:06:59', '2018-06-28 17:06:59');
+) ENGINE = MyISAM AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
